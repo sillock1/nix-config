@@ -37,6 +37,7 @@
           };
         }
         ../hosts/_modules/common
+        ../hosts/_modules/nixos
         ../hosts/${hostname}
       ];
       specialArgs = {
