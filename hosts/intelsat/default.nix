@@ -40,6 +40,9 @@
           enable = true;
         };
       };
+      programs = {
+        hyprland.enable = true;
+      };
     };
 
     hardware = {
