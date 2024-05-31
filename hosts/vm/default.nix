@@ -27,9 +27,19 @@
     };
     users.groups.jared = {
         gid = 1000;
-      };
+    };
 
-    services.openssh.enable = true;
+    modules = {
+      services = {
+        openssh = {
+          enable = true;
+        };
+      };
+      programs = {
+        hyprland.enable = true;
+      };
+    };
+
     hardware = {
       opengl = {
         enable = true;
