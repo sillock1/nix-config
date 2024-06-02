@@ -8,6 +8,9 @@
       hyprland = {
         enable = true;
       };
+      sway = {
+        enable = false;
+      };
     };
   };
 }

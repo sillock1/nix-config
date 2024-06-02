@@ -2,7 +2,11 @@
 
 {
   imports =
-    [./hardware-configuration.nix];
+    [
+      ./hardware-configuration.nix
+      ../modules/sway.nix
+      ../modules/steam.nix
+    ];
 
   config = {
 
@@ -16,6 +20,8 @@
       firewall.enable = false;
       networkmanager.enable = true;
     };
+    services.displayManager.sddm.enable = true;
+    services.xserver.enable = true;
     users.users.jared = {
       uid = 1000;
       name = "jared";

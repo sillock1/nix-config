@@ -9,7 +9,7 @@
 }:
 {
   imports = [
-    ../_modules
+    ../modules
 
     #./secrets
     ./hosts/${hostname}.nix

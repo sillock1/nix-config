@@ -16,7 +16,6 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       prismlauncher # MC Launcher
-      steam # Game Launcher
       pcsx2 # PS2 Emulator
       gamemode
     ];
