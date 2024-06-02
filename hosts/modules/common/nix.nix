@@ -51,5 +51,6 @@
   };
   environment.systemPackages = [
     pkgs.git
+    pkgs.qt6.qtwayland
   ];
 }
