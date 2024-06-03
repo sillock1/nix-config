@@ -15,11 +15,6 @@ in
   config = lib.mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
-      portalPackage =
-        pkgs.xdg-desktop-portal-wlr
-        // {
-          override = args: pkgs.xdg-desktop-portal-wlr.override (builtins.removeAttrs args ["hyprland"]);
-        };
     };
 
     security.pam.services = {
