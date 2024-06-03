@@ -4,8 +4,8 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../modules/sway.nix
       ../modules/steam.nix
+      ../modules/nixos/desktop
     ];
 
   config = {

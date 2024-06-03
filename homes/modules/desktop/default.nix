@@ -1,0 +1,9 @@
+{
+  ...
+}:
+{
+  imports = [
+    ./base
+    ./hyprland
+  ];
+}
