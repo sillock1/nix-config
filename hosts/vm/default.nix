@@ -12,7 +12,7 @@
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     console.keyMap = "uk";
 
     networking = {
