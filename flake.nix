@@ -84,7 +84,7 @@
       );
 
       nixosConfigurations = {
-        intelsat = mkSystemLib.mkNixosSystem "x86_64-linux" "intelsat" overlays flake-packages;
+        deimos = mkSystemLib.mkNixosSystem "x86_64-linux" "deimos" overlays flake-packages;
         vm = mkSystemLib.mkNixosSystem "x86_64-linux" "vm" overlays flake-packages;
       };
 

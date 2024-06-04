@@ -2,13 +2,16 @@
 
 {
   imports =
-    [./hardware-configuration.nix];
+    [
+      ./hardware-configuration.nix
+      ../modules/desktop
+    ];
 
   config = {
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-
+    boot.kernelPackages = pkgs.linuxPackages_latest;
     console.keyMap = "uk";
 
     networking = {
@@ -16,6 +19,7 @@
       firewall.enable = false;
       networkmanager.enable = true;
     };
+
     users.users.jared = {
       uid = 1000;
       name = "jared";
@@ -27,28 +31,18 @@
     };
     users.groups.jared = {
         gid = 1000;
-      };
-
-    system.activationScripts.postActivation.text = ''
-      # Must match what is in /etc/shells
-      chsh -s /run/current-system/sw/bin/fish jared
-    '';
-
-    modules = {
-      services = {
-        openssh = {
-          enable = true;
-        };
-      };
-      programs = {
-        hyprland.enable = true;
-      };
     };
 
-    hardware = {
-      opengl = {
+    modules = {
+      gui = {
+        hyprland.enable = true;
+      };
+      gaming = {
         enable = true;
       };
     };
+
+    hardware.opengl.enable = true;
   };
 }
+
