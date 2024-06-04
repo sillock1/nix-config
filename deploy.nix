@@ -23,7 +23,7 @@ let
 in
 {
   deploy.nodes = {
-    intelsat = deployConfig "intelsat" "x86_64-linux" {sshUser = "jared"; remoteBuild = true;};
+    deimos = deployConfig "deimos" "x86_64-linux" {sshUser = "jared"; remoteBuild = true;};
   };
   checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
 }
