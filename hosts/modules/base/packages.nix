@@ -4,7 +4,7 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    kitty
+    fastfetch
+    git
   ];
-  security.polkit.enable = true;
 }

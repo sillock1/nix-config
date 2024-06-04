@@ -4,8 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../modules/steam.nix
-      ../modules/nixos/desktop
+      ../modules/desktop
     ];
 
   config = {
@@ -20,8 +19,7 @@
       firewall.enable = false;
       networkmanager.enable = true;
     };
-    services.displayManager.sddm.enable = true;
-    services.xserver.enable = true;
+
     users.users.jared = {
       uid = 1000;
       name = "jared";
@@ -36,21 +34,15 @@
     };
 
     modules = {
-      services = {
-        openssh = {
-          enable = true;
-        };
-      };
-      programs = {
+      gui = {
         hyprland.enable = true;
       };
-    };
-
-    hardware = {
-      opengl = {
+      gaming = {
         enable = true;
       };
     };
+
+    hardware.opengl.enable = true;
   };
 }
 

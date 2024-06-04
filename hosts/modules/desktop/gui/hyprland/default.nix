@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.modules.programs.hyprland;
+  cfg = config.modules.gui.hyprland;
 in
 {
-  options.modules.programs.hyprland = {
+  options.modules.gui.hyprland = {
     enable = lib.mkEnableOption "hyprland";
   };
 
@@ -22,17 +22,19 @@ in
       gdm.enableGnomeKeyring = true;
     };
 
+    services.displayManager.sddm.enable = true;
+    services.xserver.enable = true;
+
     services.blueman.enable = true;
     services.gnome.gnome-keyring.enable = true;
-    security.polkit.enable = true;
 
-  # Fonts
+    # Fonts
     fonts.packages = with pkgs; [
       font-awesome
       noto-fonts-emoji
-     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "Iosevka"  ]; })
-     ];
-     
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "Iosevka"  ]; })
+    ];
+      
     # Enable Ozone Wayland support in Chromium and Electron based applications
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";

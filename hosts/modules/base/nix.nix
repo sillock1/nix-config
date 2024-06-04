@@ -49,10 +49,7 @@
     gc = {
       automatic = true;
       options = "--delete-older-than 2d";
+      dates = "weekly";
     };
   };
-  environment.systemPackages = with pkgs; [
-    fastfetch
-    git
-  ];
 }
