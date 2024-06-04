@@ -9,5 +9,10 @@
     pavucontrol
     playerctl
     pulsemixer
+
+    # Music player
+    youtube-music
+    #Social media
+    discord
   ];
 }

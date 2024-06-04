@@ -36,8 +36,6 @@
             users.jared = ../. + "/homes/jared";
           };
         }
-        ../hosts/modules/common
-        ../hosts/modules/nixos
         ../hosts/${hostname}
       ];
       specialArgs = {

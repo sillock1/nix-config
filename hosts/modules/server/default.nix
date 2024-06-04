@@ -3,6 +3,6 @@
 }:
 {
   imports = [
-    ./openssh
+    ../base
   ];
 }

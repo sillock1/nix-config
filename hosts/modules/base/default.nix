@@ -1,14 +1,15 @@
 {
   ...
-}: {
+}:
+{
   imports = [
+    ./locale.nix
     ./nix.nix
-    #./sops.nix
+    ./shells.nix
+    ./packages.nix
     ./users.nix
-    ./programs
-    ./services
+    ./services.nix
   ];
-
   documentation.nixos.enable = false;
 
   # Increase open file limit for sudoers
