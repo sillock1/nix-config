@@ -5,5 +5,6 @@
   imports = [
     ./base
     ./hyprland
+    ./gaming
   ];
 }
