@@ -12,7 +12,7 @@
         #   auto:         position automatically
         #   1:          scale to 1.5 times
         #   bitdepth,10:  enable 10 bit support
-        monitor = "Virtual-1,highres,auto,1,bitdepth,10";
+        monitor = "Virtual-1,highres,auto,1.6,bitdepth,10";
       };
     };
   };
