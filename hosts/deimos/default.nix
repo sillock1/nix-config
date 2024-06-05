@@ -37,9 +37,6 @@
       gui = {
         hyprland.enable = true;
       };
-      gaming = {
-        enable = true;
-      };
     };
 
     hardware.opengl.enable = true;
