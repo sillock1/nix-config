@@ -66,7 +66,22 @@ in
           source = ./conf/wlogout;
           recursive = true;
         };
+        "hypr/hypridle.conf" = {
+          source = ./conf/hypridle/hypridle.conf;
+          recursive = true;
+        };
+        "hypr/hyprpaper.conf" = {
+          source = ./conf/hyprpaper/hyprpaper.conf;
+          recursive = true;
+        };
+        "hypr/hyprlock" = {
+          source = ./conf/hyprlock;
+          recursive = true;
+        };
       };
+      services.hypridle.enable = true;
+      services.hyprpaper.enable = true;
+      programs.hyprlock.enable = true;
     })
     (lib.mkIf cfg.enable {
       wayland.windowManager.hyprland = {
