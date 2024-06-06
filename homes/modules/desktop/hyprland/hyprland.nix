@@ -74,8 +74,8 @@ in
           source = ./conf/hyprpaper/hyprpaper.conf;
           recursive = true;
         };
-        "hypr/hyprlock" = {
-          source = ./conf/hyprlock;
+        "hypr/hyprlock.conf" = {
+          source = ./conf/hyprlock/hyprlock.conf;
           recursive = true;
         };
       };
