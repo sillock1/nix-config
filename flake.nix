@@ -79,7 +79,7 @@
 
       nixosConfigurations = {
         deimos = mkSystemLib.mkNixosSystem "x86_64-linux" "deimos" overlays flake-packages;
-        vm = mkSystemLib.mkNixosSystem "x86_64-linux" "vm" overlays flake-packages;
+        desktop-vm = mkSystemLib.mkNixosSystem "x86_64-linux" "desktop-vm" overlays flake-packages;
       };
 
   } // import ./deploy.nix inputs;
