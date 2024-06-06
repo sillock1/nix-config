@@ -70,18 +70,15 @@ in
           source = ./conf/hypridle/hypridle.conf;
           recursive = true;
         };
-        "hypr/hyprpaper.conf" = {
-          source = ./conf/hyprpaper/hyprpaper.conf;
-          recursive = true;
-        };
         "hypr/hyprlock.conf" = {
           source = ./conf/hyprlock/hyprlock.conf;
           recursive = true;
         };
+        "wpaperd" = {
+          source = ./conf/wpaperd;
+          recursive = true;
+        };
       };
-      services.hypridle.enable = true;
-      services.hyprpaper.enable = true;
-      programs.hyprlock.enable = true;
     })
     (lib.mkIf cfg.enable {
       wayland.windowManager.hyprland = {

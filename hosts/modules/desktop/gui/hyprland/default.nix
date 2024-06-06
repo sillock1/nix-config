@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   lib,
   config,
@@ -34,29 +35,32 @@ in
       };
     };
 
-    # this is a life saver.
-    # literally no documentation about this anywhere.
-    # might be good to write about this...
-    # https://www.reddit.com/r/NixOS/comments/u0cdpi/tuigreet_with_xmonad_how/
-    systemd.services.greetd.serviceConfig = {
-      Type = "idle";
-      StandardInput = "tty";
-      StandardOutput = "tty";
-      StandardError = "journal"; # Without this errors will spam on screen
-      # Without these bootlogs will spam on screen
-      TTYReset = true;
-      TTYVHangup = true;
-      TTYVTDisallocate = true;
-    };
+  # this is a life saver.
+  # literally no documentation about this anywhere.
+  # might be good to write about this...
+  # https://www.reddit.com/r/NixOS/comments/u0cdpi/tuigreet_with_xmonad_how/
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal"; # Without this errors will spam on screen
+    # Without these bootlogs will spam on screen
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYVTDisallocate = true;
+  };
 
-    services.blueman.enable = true;
-    services.gnome.gnome-keyring.enable = true;
+  services.blueman.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
-    # Fonts
-    fonts.packages = with pkgs; [
-      font-awesome
-      noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "Iosevka"  ]; })
-    ];
+  # Fonts
+  fonts.packages = with pkgs; [
+    font-awesome
+    noto-fonts-emoji
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "Iosevka"  ]; })
+  ];
+  environment.systemPackages = [
+    inputs.swww.packages.${pkgs.system}.swww
+  ];
   };
 }
