@@ -20,4 +20,6 @@ done
 # Launch statusbar (waybar)
 ~/.config/hypr/scripts/statusbar &
 
+wpaperd &
+
 exec mpd &
