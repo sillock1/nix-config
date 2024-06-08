@@ -4,7 +4,7 @@
 }:
 {
   imports = [
-    ./sops.nix
+    ./secrets
     ./hosts/${hostname}.nix
   ];
 }

@@ -1,5 +1,6 @@
 ---
 keys:
+  - &desktop-vm-jared age15v2pux7vclqj5qn03prene6z9dh4rctgnzpkxt8uwl0j00puhufqjyeetq
   - &host_desktop-vm age1x0ynxrkxz8ym6vlwamffy5euuf0fkl67m92h4m22e5qu90muydqsk04qv0
 
 
@@ -8,3 +9,4 @@ creation_rules:
     key_groups:
       - age:
           - *host_desktop-vm
+          - *desktop-vm-jared
