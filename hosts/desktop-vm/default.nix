@@ -28,6 +28,7 @@
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
       openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.readFile ../../homes/jared/config/ssh/ssh.pub);
+      hashedPasswordFile = config.sops.secrets."users/jared/password".path;
     };
     users.groups.jared = {
         gid = 1000;
