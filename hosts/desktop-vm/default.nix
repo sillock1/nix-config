@@ -3,6 +3,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./secrets.nix
       ../modules/desktop
     ];
 

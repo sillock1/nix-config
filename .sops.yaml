@@ -1,0 +1,10 @@
+---
+keys:
+  - &host_desktop-vm age1x0ynxrkxz8ym6vlwamffy5euuf0fkl67m92h4m22e5qu90muydqsk04qv0
+
+
+creation_rules:
+  - path_regex: .*\.sops\.ya?ml$
+    key_groups:
+      - age:
+          - *host_desktop-vm

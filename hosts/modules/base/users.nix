@@ -20,7 +20,7 @@ in
 
   config.users = {
     inherit (cfg) groups;
-    mutableUsers = true;
+    mutableUsers = false;
     users = cfg.additionalUsers;
   };
 }
