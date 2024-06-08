@@ -9,6 +9,7 @@
     ./packages.nix
     ./users.nix
     ./services.nix
+    ./sops.nix
   ];
   documentation.nixos.enable = false;
 
