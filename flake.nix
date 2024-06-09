@@ -17,14 +17,6 @@
       url = "github:oxalica/rust-overlay";
     };
 
-    # deploy-rs
-    deploy-rs = {
-      url = "github:serokell/deploy-rs";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
     # sops-nix
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -44,7 +36,6 @@
     nixpkgs-unstable,
     home-manager,
     nix-inspect,
-    deploy-rs,
     sops-nix,
     rust-overlay,
     ...
@@ -83,5 +74,5 @@
         desktop-vm = mkSystemLib.mkNixosSystem "x86_64-linux" "desktop-vm" overlays flake-packages;
       };
 
-  } // import ./deploy.nix inputs;
+  };
 }
