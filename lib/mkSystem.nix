@@ -32,7 +32,7 @@
             extraSpecialArgs = {
               inherit inputs hostname flake-packages;
             };
-            users.jared = ../. + "/homes/jared";
+            users.jared = ../. + "/home/jared";
           };
         }
         ../hosts/${hostname}
