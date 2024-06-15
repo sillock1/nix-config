@@ -3,7 +3,6 @@
 }:
 {
   imports = [
-    ./home.nix
     ./anyrun.nix
     ./media.nix
     ./xdg.nix

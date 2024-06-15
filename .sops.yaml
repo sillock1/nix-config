@@ -2,11 +2,12 @@
 keys:
   - &desktop-vm-jared age15v2pux7vclqj5qn03prene6z9dh4rctgnzpkxt8uwl0j00puhufqjyeetq
   - &host_desktop-vm age1x0ynxrkxz8ym6vlwamffy5euuf0fkl67m92h4m22e5qu90muydqsk04qv0
-
+  - &host_server-vm age10rly40r8e0zzgdxht9qp6602huzvarhnuaggxmf85r4844aj53fqa4dks5
 
 creation_rules:
   - path_regex: .*\.sops\.ya?ml$
     key_groups:
       - age:
-          - *host_desktop-vm
           - *desktop-vm-jared
+          - *host_desktop-vm
+          - *host_server-vm
