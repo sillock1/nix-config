@@ -14,10 +14,10 @@
     ];
 
   config = {
-
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelPackages = pkgs.linuxPackages_latest;
+
     console.keyMap = "uk";
 
     networking = {
@@ -46,6 +46,15 @@
         bind = {
           enable = true;
           config = import ./config/bind.nix {inherit config;};
+        };
+        dnsdist = {
+          enable = true;
+          config = builtins.readFile ./config/dnsdist.conf;
+        };
+        blocky = {
+          enable = true;
+          package = pkgs.unstable.blocky;
+          config = import ./config/blocky.nix;
         };
       };
     };
