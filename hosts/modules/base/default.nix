@@ -10,6 +10,7 @@
     ./users.nix
     ./services.nix
     ./sops.nix
+    ./tty.nix
   ];
   documentation.nixos.enable = false;
 

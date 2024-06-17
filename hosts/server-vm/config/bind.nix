@@ -20,7 +20,7 @@ acl "trusted" {
 options {
   directory "${config.services.bind.directory}";
   pid-file "${config.services.bind.directory}/named.pid";
-  listen-on { 127.0.0.1; 10.5.0.3; };
+  listen-on port 5353 { any; };
 
   allow-recursion {
     trusted;
