@@ -35,6 +35,8 @@
             users.jared = ../. + "/home/jared";
           };
         }
+        inputs.disko.nixosModules.disko
+        inputs.impermanence.nixosModules.impermanence
         ../hosts/${hostname}
       ];
       specialArgs = {
