@@ -3,27 +3,40 @@
   lib, 
   pkgs,
   hostname,
+  modulesPath,
   ... 
 }:
 {
   imports =
     [
+      (modulesPath + "/profiles/qemu-guest.nix")
       ./hardware-configuration.nix
       ./secrets.nix
+      (import ./disko-config.nix {disks = [ "/dev/vda"]; })
       ../modules/server
     ];
 
   config = {
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot = {
+      loader = {
+        systemd-boot.enable = true;
+        efi.canTouchEfiVariables = true;
+      };
+      initrd = {
+        availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+      };
+      kernelModules = [ "kvm-amd" ];
+      kernelPackages = pkgs.linuxPackages_latest;
+    };
 
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     console.keyMap = "uk";
 
     networking = {
       hostName = hostname;
       firewall.enable = false;
       networkmanager.enable = true;
+      useDHCP = lib.mkDefault true;
     };
 
     users.users.jared = {
