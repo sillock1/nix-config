@@ -29,6 +29,7 @@
       "subvol=persist"
     ];
   };
+
   # Disable swap
   swapDevices = lib.mkForce [ ];
 }
