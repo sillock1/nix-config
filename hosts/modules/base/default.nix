@@ -11,6 +11,7 @@
     ./services.nix
     ./sops.nix
     ./tty.nix
+    ./impermanence.nix
   ];
   documentation.nixos.enable = false;
 
