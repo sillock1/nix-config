@@ -2,7 +2,7 @@
 keys:
   - &desktop-vm-jared age15v2pux7vclqj5qn03prene6z9dh4rctgnzpkxt8uwl0j00puhufqjyeetq
   - &host_desktop-vm age1x0ynxrkxz8ym6vlwamffy5euuf0fkl67m92h4m22e5qu90muydqsk04qv0
-  - &host_server-vm age10rly40r8e0zzgdxht9qp6602huzvarhnuaggxmf85r4844aj53fqa4dks5
+  - &host_server-vm age1rp80wdk97p5jvkqxgg3h8285xx47tca4m2epzuns7a3uhashrvfs66s78l
 
 creation_rules:
   - path_regex: .*\.sops\.ya?ml$
