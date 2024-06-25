@@ -7,7 +7,6 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./gamemode.nix
-    ./gpg.nix
     ./impermanence.nix
     ./locale.nix
     ./nix-ld.nix
