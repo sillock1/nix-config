@@ -1,8 +1,15 @@
-{ config, lib, pkgs, hostname, ... }:
+{ 
+  config, 
+  lib, 
+  pkgs,
+  modulesPath,
+  inputs,
+  ... 
+}:
 {
   imports =
     [
-      (import ./disko-config.nix {disks = [ "/dev/vda"]; })
+      ./disko-config.nix
       
       (modulesPath + "/profiles/qemu-guest.nix")
       ./hardware-configuration.nix
@@ -12,46 +19,37 @@
 
       ../common/global
 
-      ../common/optional/audio.nix
-      ../common/optional/1password.nix
-      ../common/optional/fonts.nix
-      ../common/optional/greetd.nix
+      #Optional config
       ../common/optional/swww.nix
-      ../common/optional/sops.nix
+      ../common/optional/fonts.nix
+      ../common/optional/1password.nix
     ];
 
   config = {
+    boot = {
+      loader = {
+        systemd-boot.enable = true;
+        efi.canTouchEfiVariables = true;
+      };
+      initrd = {
+        availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+      };
+      kernelModules = [ "kvm-amd" ];
+      kernelPackages = pkgs.linuxPackages_latest;
+    };
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     console.keyMap = "uk";
 
     networking = {
-      hostName = hostname;
+      hostName = "server-vm";
       firewall.enable = false;
       networkmanager.enable = true;
-    };
-
-    sops = {
-      defaultSopsFile = ./secrets.sops.yaml;
-      secrets = {
-        "users/jared/password" = {
-          neededForUsers = true;
-        };
-      };
-    };
-    
-    modules = {
-      gui = {
-        hyprland.enable = true;
-      };
-      gaming = {
-        enable = true;
-      };
+      useDHCP = lib.mkDefault true;
     };
 
     hardware.opengl.enable = true;
   };
+  system.stateVersion = "24.05";
 }
 
