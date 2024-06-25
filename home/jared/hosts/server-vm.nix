@@ -1,7 +1,6 @@
 { config, pkgs, lib, ...}:
 {
-  imports = [
-    ../../modules/server
+imports = [
+    ../global
   ];
-  modules = {};
 }

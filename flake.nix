@@ -10,7 +10,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence.url = "github:nix-community/impermanence";
+
+    #Temporary impermanence module until upstream is updated
+    impermanence.url = "github:misterio77/impermanence";
+    #impermanence.url = "github:nix-community/impermanence";
+    
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -38,47 +42,55 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
     home-manager,
-    nix-inspect,
-    sops-nix,
-    rust-overlay,
+    systems,
     ...
   } @inputs:
   let
-    supportedSystems = ["x86_64-linux"];
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    overlays = import ./overlays {inherit inputs;};
-    mkSystemLib = import ./lib/mkSystem.nix {inherit inputs;};
-    flake-packages = self.flake-packages;
-
-    legacyPackages = forAllSystems (
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib;
+    forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
+    pkgsFor = lib.genAttrs (import systems) (
       system:
         import nixpkgs {
           inherit system;
-          overlays = builtins.attrValues overlays;
           config.allowUnfree = true;
         }
     );
     in
     {
-      inherit overlays;
+      inherit lib;
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
 
-      packages = forAllSystems (
-        system: let
-          pkgs = legacyPackages.${system};
-        in
-          import ./pkgs {
-            inherit pkgs;
-            inherit inputs;
-          }  
-      );
+      overlays = import ./overlays {inherit inputs outputs;};
+
+      packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
 
       nixosConfigurations = {
-        deimos = mkSystemLib.mkNixosSystem "x86_64-linux" "deimos" overlays flake-packages;
-        desktop-vm = mkSystemLib.mkNixosSystem "x86_64-linux" "desktop-vm" overlays flake-packages;
-        server-vm = mkSystemLib.mkNixosSystem "x86_64-linux" "server-vm" overlays flake-packages;
-      };
+        deimos-vm = lib.nixosSystem {
+          modules = [./hosts/deimos-vm];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        };
 
+        desktop-vm = lib.nixosSystem {
+          modules = [./hosts/desktop-vm];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        };
+
+        server-vm = lib.nixosSystem {
+          modules = [
+            ./hosts/server-vm
+            inputs.disko.nixosModules.disko
+          ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        };
+      };
   };
 }
