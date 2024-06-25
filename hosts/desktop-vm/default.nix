@@ -2,9 +2,22 @@
 {
   imports =
     [
+      (import ./disko-config.nix {disks = [ "/dev/vda"]; })
+      
+      (modulesPath + "/profiles/qemu-guest.nix")
       ./hardware-configuration.nix
-      ./secrets.nix
-      ../modules/desktop
+
+      # Users for this machine
+      ../common/users/jared
+
+      ../common/global
+
+      ../common/optional/audio.nix
+      ../common/optional/1password.nix
+      ../common/optional/fonts.nix
+      ../common/optional/greetd.nix
+      ../common/optional/swww.nix
+      ../common/optional/sops.nix
     ];
 
   config = {
@@ -20,20 +33,15 @@
       networkmanager.enable = true;
     };
 
-    users.users.jared = {
-      uid = 1000;
-      name = "jared";
-      home = "/home/jared";
-      shell = pkgs.fish;
-      isNormalUser = true;
-      extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
-      openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.readFile ../../home/jared/config/ssh/ssh.pub);
-      hashedPasswordFile = config.sops.secrets."users/jared/password".path;
+    sops = {
+      defaultSopsFile = ./secrets.sops.yaml;
+      secrets = {
+        "users/jared/password" = {
+          neededForUsers = true;
+        };
+      };
     };
-    users.groups.jared = {
-        gid = 1000;
-    };
-
+    
     modules = {
       gui = {
         hyprland.enable = true;

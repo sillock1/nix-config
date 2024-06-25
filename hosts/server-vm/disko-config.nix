@@ -1,5 +1,9 @@
-{...}:
 {
+  inputs,
+  ...
+}:
+{
+  imports = [inputs.disko.nixosModules.disko];
   disko.devices = {
     disk.main = {
       type = "disk";
@@ -33,10 +37,6 @@
                 type = "btrfs";
                 extraArgs = [ "-f" ];
                 subvolumes = {
-                  "/home" = {
-                    mountOptions = [ "compress=zstd" ];
-                    mountpoint = "/home";
-                  };
                   "/nix" = {
                     mountOptions = [
                       "compress=zstd"

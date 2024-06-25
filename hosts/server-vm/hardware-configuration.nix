@@ -8,13 +8,6 @@
     ];
   };
 
-  fileSystems."/home" = {
-    options = [
-      "compress=zstd"
-      "subvol=home"
-    ];
-  };
-
   fileSystems."/nix" = {
     options = [
       "compress=zstd"

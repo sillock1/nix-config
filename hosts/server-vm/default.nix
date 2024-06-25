@@ -2,18 +2,26 @@
   config, 
   lib, 
   pkgs,
-  hostname,
   modulesPath,
+  inputs,
   ... 
 }:
 {
   imports =
     [
+      ./disko-config.nix
+      
       (modulesPath + "/profiles/qemu-guest.nix")
       ./hardware-configuration.nix
-      ./secrets.nix
-      (import ./disko-config.nix {disks = [ "/dev/vda"]; })
-      ../modules/server
+
+      # Users for this machine
+      ../common/users/jared
+
+      ../common/global
+
+      #Optional config
+      ../common/optional/swww.nix
+      ../common/optional/fonts.nix
     ];
 
   config = {
@@ -33,26 +41,37 @@
     console.keyMap = "uk";
 
     networking = {
-      hostName = hostname;
+      hostName = "server-vm";
       firewall.enable = false;
       networkmanager.enable = true;
       useDHCP = lib.mkDefault true;
     };
 
-    users.users.jared = {
-      uid = 1000;
-      name = "jared";
-      home = "/home/jared";
-      shell = pkgs.fish;
-      isNormalUser = true;
-      extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
-      openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.readFile ../../home/jared/config/ssh/ssh.pub);
-      hashedPasswordFile = config.sops.secrets."users/jared/password".path;
+    sops = {
+      defaultSopsFile = ./secrets.sops.yaml;
+      secrets = {
+        "networking/bind/rndc-key" = {
+          restartUnits = [ "bind.service" ];
+          owner = config.users.users.named.name;
+        };
+        "networking/bind/externaldns-key" = {
+          restartUnits = [ "bind.service" ];
+          owner = config.users.users.named.name;
+        };
+        "networking/bind/zones/pill.ac" = {
+          restartUnits = [ "bind.service" ];
+          owner = config.users.users.named.name;
+        };
+        "networking/bind/zones/sillock.io" = {
+          restartUnits = [ "bind.service" ];
+          owner = config.users.users.named.name;
+        };
+        "networking/bind/zones/1.10.in-addr.arpa" = {
+          restartUnits = [ "bind.service" ];
+          owner = config.users.users.named.name;
+        };
+      };
     };
-    users.groups.jared = {
-        gid = 1000;
-    };
-
 
     modules = {
       services = {
