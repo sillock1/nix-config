@@ -76,7 +76,10 @@
         };
 
         desktop-vm = lib.nixosSystem {
-          modules = [./hosts/desktop-vm];
+          modules = [
+            ./hosts/desktop-vm
+            inputs.disko.nixosModules.disko
+          ];
           specialArgs = {
             inherit inputs outputs;
           };

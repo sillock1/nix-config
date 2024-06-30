@@ -24,7 +24,6 @@
       ../common/optional/fonts.nix
     ];
 
-  config = {
     boot = {
       loader = {
         systemd-boot.enable = true;
@@ -91,8 +90,7 @@
       };
     };
 
-    hardware.opengl.enable = true;
-  };
+  hardware.opengl.enable = true;
   system.stateVersion = "24.05";
 }
 
