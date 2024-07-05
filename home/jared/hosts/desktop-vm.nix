@@ -4,7 +4,6 @@ imports = [
     ../global
     ../features/desktop/wayland/hyprland
     ../features/games
-    ../secrets
   ];
 
   monitors = [
@@ -15,6 +14,7 @@ imports = [
       x = 0;
       workspace = "1";
       enabled = true;
+      primary = true;
     }
   ];
 }
