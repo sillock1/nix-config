@@ -1,19 +1,14 @@
 {
-  inputs,
   pkgs,
-  lib,
   config,
   ...
 }:
-let
-  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-in
 {
-  services.greetd = {
+    services.greetd = {
       enable = true;
       settings = {
         default_session = {
-          command = "${tuigreet} --time --remember --remember-session";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --time --remember --remember-session --cmd hyprland";
           user = "greeter";
         };
       };

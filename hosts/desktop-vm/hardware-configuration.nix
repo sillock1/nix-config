@@ -23,6 +23,14 @@
     ];
   };
 
+  fileSystems."/games" = {
+    device = "/dev/vdb";
+    fsType = "btrfs";
+    options = [
+      "noatime"
+    ];
+  };
+
   # Disable swap
   swapDevices = lib.mkForce [ ];
 }

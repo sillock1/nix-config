@@ -9,6 +9,7 @@
 {
   imports =
     [
+      inputs.disko.nixosModules.disko
       ./disko-config.nix
       
       (modulesPath + "/profiles/qemu-guest.nix")

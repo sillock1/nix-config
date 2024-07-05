@@ -1,11 +1,14 @@
-{...}:
+{
+  pkgs,
+  ...
+}:
 {
   imports = [
-    ./wofi.nix
+    ./hypridle.nix
+    ./hyprlock.nix
     ./kitty.nix
-    ./swaylock.nix
-    ./swayidle.nix
     ./waybar.nix
+    ./wlogout.nix
     ./wofi.nix
     ./wpaperd.nix
   ];
@@ -14,6 +17,7 @@
   home.packages = with pkgs; [
     wf-recorder
     wl-clipboard
+    pulseaudio
   ];
 
   home.sessionVariables = {

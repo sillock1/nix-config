@@ -46,8 +46,6 @@
         ".local/share/nix" # trusted settings and repl history
         "git"
       ];
-      files = [
-      ];
     };
   };
 }

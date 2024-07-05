@@ -24,6 +24,7 @@
       ../common/optional/swww.nix
       ../common/optional/fonts.nix
       ../common/optional/1password.nix
+      ../common/optional/greetd.nix
     ];
 
     boot = {
@@ -42,7 +43,7 @@
     console.keyMap = "uk";
 
     networking = {
-      hostName = "server-vm";
+      hostName = "desktop-vm";
       firewall.enable = false;
       networkmanager.enable = true;
       useDHCP = lib.mkDefault true;

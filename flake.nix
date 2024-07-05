@@ -14,7 +14,6 @@
     #Temporary impermanence module until upstream is updated
     impermanence.url = "github:misterio77/impermanence";
     #impermanence.url = "github:nix-community/impermanence";
-    
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -37,6 +36,7 @@
     anyrun.url = "github:Kirottu/anyrun";
     anyrun.inputs.nixpkgs.follows = "nixpkgs";
     swww.url = "github:LGFae/swww";
+    matugen.url = "github:/InioX/Matugen";
   };
 
   outputs = {
@@ -91,6 +91,15 @@
             inputs.disko.nixosModules.disko
           ];
           specialArgs = {
+            inherit inputs outputs;
+          };
+        };
+      };
+      homeConfigurations = {
+        "jared@desktop-vm" = lib.homeManagerConfiguration {
+          modules = [ ./home/jared/hosts/desktop-vm.nix ./home/jared/nixpkgs.nix ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
             inherit inputs outputs;
           };
         };
