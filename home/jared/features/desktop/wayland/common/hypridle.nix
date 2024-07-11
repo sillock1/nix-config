@@ -12,4 +12,8 @@
     source = ../../../../config/hypridle/hypridle.conf;
     recursive = true;
   };
+
+  home.persistence = {
+    "/persist/${config.home.homeDirectory}".files = [".config/hypr/hypridle.conf"];
+  };
 }

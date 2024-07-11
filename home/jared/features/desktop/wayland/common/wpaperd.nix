@@ -13,4 +13,8 @@
       };
     };
   };
+
+  home.persistence = {
+    "/persist/${config.home.homeDirectory}".files = [".config/wpaperd/wallpaper.toml"];
+  };
 }

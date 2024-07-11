@@ -18,4 +18,8 @@
     source = ../../../../config/waybar;
     recursive = true;
   };
+
+  home.persistence = {
+    "/persist/${config.home.homeDirectory}".directory = [".config/waybar"];
+  };
 }
