@@ -33,6 +33,6 @@
   };
 
   home.persistence = {
-    "/persist/${config.home.homeDirectory}".directory = [".config/kitty"];
+    "/persist/${config.home.homeDirectory}".files = [".config/kitty/kitty.conf"];
   };
 }
