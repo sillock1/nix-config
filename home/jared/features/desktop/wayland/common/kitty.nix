@@ -31,4 +31,8 @@
       size = 13;
     };
   };
+
+  home.persistence = {
+    "/persist/${config.home.homeDirectory}".directory = [".config/kitty"];
+  };
 }
