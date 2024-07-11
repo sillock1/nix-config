@@ -18,7 +18,7 @@
     systemd.enable = true;
   };
 
-  xdg.configFile."hypr/waybar" = {
+  xdg.configFile."waybar" = {
     source = ../../../../config/waybar;
     recursive = true;
   };
