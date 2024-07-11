@@ -9,6 +9,6 @@
   };
 
   home.persistence = {
-    "/persist/${config.home.homeDirectory}".directory = [".config/wlogout"];
+    "/persist/${config.home.homeDirectory}".directories = [".config/wlogout"];
   };
 }

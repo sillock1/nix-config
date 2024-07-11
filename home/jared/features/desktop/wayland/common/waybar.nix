@@ -20,6 +20,6 @@
   };
 
   home.persistence = {
-    "/persist/${config.home.homeDirectory}".directory = [".config/waybar"];
+    "/persist/${config.home.homeDirectory}".directories = [".config/waybar"];
   };
 }
