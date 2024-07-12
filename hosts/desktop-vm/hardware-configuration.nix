@@ -4,14 +4,6 @@
     fsType = "tmpfs";
     options = [
       "mode=755"
-      "size=2G"
-    ];
-  };
-
-  fileSystems."/home" = {
-    fsType = "tmpfs";
-    options = [
-      "mode=777"
       "size=4G"
     ];
   };
