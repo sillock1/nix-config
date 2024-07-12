@@ -8,7 +8,7 @@
   imports = [inputs.impermanence.nixosModules.impermanence];
   environment = {
     persistence = {
-      "/persist" = {
+      "/persist/system" = {
         hideMounts = true;
         directories = [
           "/etc/secureboot"
@@ -27,6 +27,7 @@
       };
     };
   };
+programs.fuse.userAllowOther = true;
 system.activationScripts.persistent-dirs.text = let
     mkHomePersist = user:
       lib.optionalString user.createHome ''

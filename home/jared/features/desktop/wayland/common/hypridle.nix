@@ -14,6 +14,6 @@
   };
 
   home.persistence = {
-    "/persist/${config.home.homeDirectory}".files = [".config/hypr/hypridle.conf"];
+    "/persist/home/${config.home.username}".files = [".config/hypr/hypridle.conf"];
   };
 }

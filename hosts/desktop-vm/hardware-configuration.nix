@@ -8,6 +8,14 @@
     ];
   };
 
+  fileSystems."/home" = {
+    fsType = "tmpfs";
+    options = [
+      "mode=777"
+      "size=4G"
+    ];
+  };
+
   fileSystems."/nix" = {
     options = [
       "compress=zstd"

@@ -35,7 +35,7 @@
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     sessionPath = ["$HOME/.local/bin"];
 
-    persistence."/persist/${config.home.homeDirectory}" = {
+    persistence."/persist/home/${config.home.username}" = {
       defaultDirectoryMethod = "symlink";
       allowOther = true;
       directories = [
