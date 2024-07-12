@@ -19,7 +19,7 @@
     recursive = true;
   };
 
-  home.persistence = {
-    "/persist/home/${config.home.username}".directories = [".config/waybar"];
-  };
+  # home.persistence = {
+  #   "/persist/home/${config.home.username}".directories = [".config/waybar"];
+  # };
 }

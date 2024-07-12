@@ -8,7 +8,7 @@
     recursive = true;
   };
 
-  home.persistence = {
-    "/persist/home/${config.home.username}".directories = [".config/wlogout"];
-  };
+  # home.persistence = {
+  #   "/persist/home/${config.home.username}".directories = [".config/wlogout"];
+  # };
 }
