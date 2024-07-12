@@ -1,7 +1,7 @@
 ---
 keys:
   - &sillock 400670D8EC65A6C34626665F16D2392AC3023DC3
-  - &desktop-vm age17g69vqw92knjxc3vernzl7vjd7atqc697s8qjnyf2pfuts2eycvqrfr2u5
+  - &desktop-vm age13vw6x8lf405njpvghajj3jmtd7d0gycgrpzexgsym6066tuyk37qydzput
   - &server-vm age1ntsfvgs6ydtnrhtnm9wpt8vkxtjpls36lw4xugslxw27yt8fsfuq4s0azq
 
 creation_rules:
