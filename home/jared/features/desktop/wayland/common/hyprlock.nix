@@ -13,6 +13,6 @@
   };
 
   home.persistence = {
-    "/persist/${config.home.homeDirectory}".files = [".config/hypr/hyprlock.conf"];
+    "/persist/home/${config.home.username}".files = [".config/hypr/hyprlock.conf"];
   };
 }

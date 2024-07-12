@@ -15,7 +15,7 @@
     };
   };
 
-  home.persistence = {
-    "/persist/${config.home.homeDirectory}".files = [".config/wpaperd/wallpaper.toml"];
-  };
+   home.persistence = {
+     "/persist/home/${config.home.username}".files = [".config/wpaperd/wallpaper.toml"];
+   };
 }
