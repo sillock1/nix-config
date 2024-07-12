@@ -11,8 +11,4 @@
     source = ../../../../config/hyprlock/hyprlock.conf;
     recursive = true;
   };
-
-  home.persistence = {
-    "/persist/home/${config.home.username}".files = [".config/hypr/hyprlock.conf"];
-  };
 }

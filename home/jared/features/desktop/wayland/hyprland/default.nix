@@ -47,8 +47,4 @@
     };
     extraConfig = builtins.readFile ../../../../config/hyprland/hyprland.conf;
   };
-
-  home.persistence = {
-    "/persist/home/${config.home.username}".files = [".config/hypr/hyprland.conf"];
-  };
 }
