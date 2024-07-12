@@ -45,6 +45,9 @@
         ".local/bin"
         "git"
       ];
+      files = [
+        ".config/wpaperd/wallpaper.toml"
+      ];
     };
   };
 }
