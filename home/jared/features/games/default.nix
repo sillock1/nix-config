@@ -5,7 +5,8 @@
 }:
 {
   imports = [
-    
+    ./steam.nix
+    ./prism-launcher.nix
   ];
 
   home = {
