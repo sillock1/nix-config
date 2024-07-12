@@ -12,7 +12,7 @@
     recursive = true;
   };
 
-  home.persistence = {
-    "/persist/home/${config.home.username}".files = [".config/hypr/hyprlock.conf"];
-  };
+  # home.persistence = {
+  #   "/persist/home/${config.home.username}".files = [".config/hypr/hyprlock.conf"];
+  # };
 }

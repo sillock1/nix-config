@@ -32,7 +32,7 @@
     };
   };
 
-  home.persistence = {
-    "/persist/home/${config.home.username}".files = [".config/kitty/kitty.conf"];
-  };
+  # home.persistence = {
+  #   "/persist/home/${config.home.username}".files = [".config/kitty/kitty.conf"];
+  # };
 }

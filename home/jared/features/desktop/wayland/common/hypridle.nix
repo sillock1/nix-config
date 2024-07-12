@@ -13,7 +13,7 @@
     recursive = true;
   };
 
-  home.persistence = {
-    "/persist/home/${config.home.username}".files = [".config/hypr/hypridle.conf"];
-  };
+  # home.persistence = {
+  #   "/persist/home/${config.home.username}".files = [".config/hypr/hypridle.conf"];
+  # };
 }
