@@ -44,16 +44,6 @@
         "Videos"
         ".local/bin"
         "git"
-        ".local/share/PrismLauncher"
-        # ".config/wlogout"
-        # ".config/waybar"
-      ];
-      files = [
-        # ".config/wpaperd/wallpaper.toml"
-        # ".config/hypr/hyprland.conf"
-        # ".config/kitty/kitty.conf"
-        # ".config/hypr/hyprlock.conf"
-        # ".config/hypr/hypridle.conf"
       ];
     };
   };

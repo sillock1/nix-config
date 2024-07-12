@@ -8,7 +8,7 @@
   imports = [inputs.impermanence.nixosModules.impermanence];
   environment = {
     persistence = {
-      "/persist/system" = {
+      "/persist" = {
         hideMounts = true;
         directories = [
           "/etc/secureboot"
