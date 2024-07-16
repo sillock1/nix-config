@@ -68,8 +68,11 @@
       packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
 
       nixosConfigurations = {
-        deimos-vm = lib.nixosSystem {
-          modules = [./hosts/deimos-vm];
+        deimos = lib.nixosSystem {
+          modules = [
+            ./hosts/deimos
+            inputs.disko.nixosModules.disko
+          ];
           specialArgs = {
             inherit inputs outputs;
           };
