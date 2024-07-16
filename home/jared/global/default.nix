@@ -9,11 +9,6 @@
 {
   imports = [inputs.impermanence.nixosModules.home-manager.impermanence]
     ++ (builtins.attrValues outputs.homeManagerModules);
-  programs = {
-    home-manager.enable = true;
-    git.enable = true;
-  };
-
 
   nix = {
     package = lib.mkDefault pkgs.nix;
@@ -29,8 +24,13 @@
 
   systemd.user.startServices = "sd-switch";
 
+  programs = {
+    home-manager.enable = true;
+    git.enable = true;
+  };
+
   home = {
-    stateVersion = "24.05";
+    stateVersion = lib.mkDefault "24.05";
     username = lib.mkDefault "jared";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     sessionPath = ["$HOME/.local/bin"];
@@ -43,6 +43,7 @@
         "Pictures"
         "Videos"
         ".local/bin"
+        ".local/share/nix" # trusted settings and repl history
         "git"
       ];
     };
