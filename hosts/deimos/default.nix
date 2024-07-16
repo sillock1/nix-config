@@ -1,46 +1,60 @@
-{ config, lib, pkgs, hostname, ... }:
-
+{ 
+  config, 
+  lib, 
+  pkgs,
+  modulesPath,
+  inputs,
+  ... 
+}:
 {
   imports =
     [
+      inputs.disko.nixosModules.disko
+      ./disko-config.nix
+      
       ./hardware-configuration.nix
-      ../modules/desktop
+
+      # Users for this machine
+      ../common/users/jared
+
+      ../common/global
+
+      #Optional config
+      ../common/optional/swww.nix
+      ../common/optional/fonts.nix
+      ../common/optional/1password.nix
+      ../common/optional/greetd.nix
     ];
 
-  config = {
+    boot = {
+      loader = {
+        systemd-boot.enable = true;
+        efi.canTouchEfiVariables = true;
+      };
+      initrd = {
+        availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+      };
+      kernelModules = [ "kvm-amd" ];
+      kernelPackages = pkgs.linuxPackages_latest;
+    };
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     console.keyMap = "uk";
 
     networking = {
-      hostName = hostname;
+      hostName = "deimos";
       firewall.enable = false;
       networkmanager.enable = true;
+      useDHCP = lib.mkDefault true;
     };
 
-    users.users.jared = {
-      uid = 1000;
-      name = "jared";
-      home = "/home/jared";
-      shell = pkgs.fish;
-      isNormalUser = true;
-      extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
-      openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.readFile ../../home/jared/config/ssh/ssh.pub);
-      hashedPasswordFile = config.sops.secrets."users/jared/password".path;
-    };
-    users.groups.jared = {
-        gid = 1000;
-    };
-
-    modules = {
-      gui = {
-        hyprland.enable = true;
+    hardware = {
+      opengl.enable = true;
+      pulseaudio = {
+        enable = true;
+        support32Bit = true;
       };
     };
 
-    hardware.opengl.enable = true;
-  };
+  system.stateVersion = "24.05";
 }
-
