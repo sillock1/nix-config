@@ -23,6 +23,9 @@
     ];
   };
 
-  # Disable swap
-  swapDevices = lib.mkForce [ ];
+  swapDevices = [ {
+    device = "/dev/sda3";
+    size = 16*1024;
+    randomEncryption.enable = true; 
+  } ];
 }
