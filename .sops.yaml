@@ -1,6 +1,7 @@
 ---
 keys:
   - &sillock 400670D8EC65A6C34626665F16D2392AC3023DC3
+  - &deimos age17ezk9gy2zzdewtfp035c48xrst5t0kdcnvhqs7v0sshussv5hd6qqz00mk
   - &desktop-vm age13vw6x8lf405njpvghajj3jmtd7d0gycgrpzexgsym6066tuyk37qydzput
   - &server-vm age1ntsfvgs6ydtnrhtnm9wpt8vkxtjpls36lw4xugslxw27yt8fsfuq4s0azq
 
@@ -8,6 +9,7 @@ creation_rules:
   - path_regex: .*\.sops\.ya?ml$
     key_groups:
       - age:
+          - *deimos
           - *desktop-vm
           - *server-vm
         pgp:
