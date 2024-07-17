@@ -24,7 +24,7 @@
   };
 
   swapDevices = [ {
-    device = "/dev/sda3";
+    device = "/var/lib/swapfile";
     size = 16*1024;
     randomEncryption.enable = true; 
   } ];
