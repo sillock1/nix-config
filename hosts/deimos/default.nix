@@ -47,6 +47,11 @@
 
     networking = {
       hostName = "deimos";
+      hostId = pkgs.lib.concatStringsSep "" (
+        pkgs.lib.take 8 (
+          pkgs.lib.stringToCharacters (builtins.hashString "sha256" config.networking.hostName)
+        )
+      );
       firewall.enable = false;
       networkmanager.enable = true;
       useDHCP = lib.mkDefault true;
