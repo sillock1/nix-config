@@ -48,6 +48,7 @@
       };
     };
 
+  users.mutableUsers = true;
   users.users.temp = {
     isNormalUser= true;
     shell = pkgs.fish;
