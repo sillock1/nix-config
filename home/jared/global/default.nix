@@ -39,6 +39,7 @@
       defaultDirectoryMethod = "symlink";
       allowOther = true;
       directories = [
+        "Downloads"
         "Documents"
         "Pictures"
         "Videos"
