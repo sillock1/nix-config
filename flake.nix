@@ -90,7 +90,7 @@
 
         desktop-vm-minimal = lib.nixosSystem {
           modules = [
-            ./hosts/desktop-vm
+            ./hosts/desktop-vm/minimal.nix
             inputs.disko.nixosModules.disko
           ];
           specialArgs = {
