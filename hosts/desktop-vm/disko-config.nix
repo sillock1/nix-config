@@ -9,7 +9,7 @@
       content = {
         type = "gpt";
         partitions = {
-          ESP = {
+          esp = {
             type = "EF00";
             priority = 1;
             size = "4096M";
@@ -22,6 +22,15 @@
                 "umask=0077"
               ];
             };
+          };
+          encryptedSwap = {
+              size = "32G";
+              content = {
+                type = "swap";
+                randomEncryption = true;
+                priority = 100; # prefer to encrypt as long as we have space for it
+                resumeDevice = true; # resume from hiberation from this device
+              };
           };
           luks = {
             size = "100%";
