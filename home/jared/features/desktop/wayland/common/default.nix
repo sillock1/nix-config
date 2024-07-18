@@ -9,7 +9,7 @@
     ./kitty.nix
     ./waybar.nix
     ./wlogout.nix
-    ./wofi.nix
+    ./bemenu.nix
     ./wpaperd.nix
   ];
 
