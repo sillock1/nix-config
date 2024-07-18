@@ -49,6 +49,7 @@
     };
 
   users.users.temp = {
+    isNormalUser= true;
     shell = pkgs.fish;
   };
   system.stateVersion = "24.05";
