@@ -23,7 +23,4 @@
       "noatime"
     ];
   };
-
-  # Disable swap
-  swapDevices = lib.mkForce [ ];
 }
