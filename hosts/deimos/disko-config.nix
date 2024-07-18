@@ -76,7 +76,7 @@
               mountpoint = "legacy";
             };
             postCreateHook = ''
-              zfs snapshot rpool/local/root@blank
+              zfs snapshot rpool/encrypted/local/root@blank
             '';
           };
           "encrypted/local/nix" = {
