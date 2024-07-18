@@ -88,16 +88,6 @@
           };
         };
 
-        desktop-vm-minimal = lib.nixosSystem {
-          modules = [
-            ./hosts/desktop-vm/minimal.nix
-            inputs.disko.nixosModules.disko
-          ];
-          specialArgs = {
-            inherit inputs outputs;
-          };
-        };
-
         server-vm = lib.nixosSystem {
           modules = [
             ./hosts/server-vm
