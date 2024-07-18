@@ -39,7 +39,7 @@
       '';
       };
       kernelModules = [ "kvm-amd" ];
-      kernelPackages = pkgs.linuxPackages_latest;
+      kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     };
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
