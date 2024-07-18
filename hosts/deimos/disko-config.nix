@@ -9,7 +9,7 @@
       content = {
         type = "gpt";
         partitions = {
-          ESP = {
+          esp = {
             type = "EF00";
             priority = 1;
             size = "4096M";
@@ -21,6 +21,13 @@
                 "defaults"
                 "umask=0077"
               ];
+            };
+          };
+          zfs = {
+            size = "100%";
+            content = {
+              type = "zfs";
+              pool = "rpool";
             };
           };
         };
