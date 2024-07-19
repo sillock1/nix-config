@@ -33,13 +33,9 @@
       };
       initrd = {
         availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
-        postDeviceCommands = lib.mkAfter ''
-        zfs rollback -r rpool/encrypted/local/root@blank && \
-        echo "rollback complete"
-      '';
       };
       kernelModules = [ "kvm-amd" ];
-      kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+      kernelPackages = pkgs.linuxPackages_latest;
     };
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
