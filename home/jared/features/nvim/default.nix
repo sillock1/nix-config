@@ -1,6 +1,7 @@
 {
   config,
-  pkgs
+  pkgs,
+  ...
 }:
 {
   home.sessionVariables.EDITOR = "nvim";
