@@ -22,7 +22,4 @@ in
       vim = mkIf hasNeovim "nvim";
     };
   };
-  home.persistence = {
-    "/persist/home/${config.home.username}".directories = [".local/share/fish"];
-  };
 }
