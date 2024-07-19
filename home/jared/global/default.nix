@@ -7,7 +7,11 @@
   ...
 }: 
 {
-  imports = [inputs.impermanence.nixosModules.home-manager.impermanence]
+  imports = [
+    inputs.impermanence.nixosModules.home-manager.impermanence
+    ../features/cli
+    ../features/nvim
+    ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
   nix = {
