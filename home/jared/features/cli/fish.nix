@@ -1,7 +1,8 @@
 {
   pkgs,
   lib,
-  config
+  config,
+  ...
 }:
 let
   inherit (lib) mkIf;
