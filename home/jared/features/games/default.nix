@@ -12,7 +12,7 @@
   home = {
     packages = with pkgs; [gamescope];
     persistence = {
-      "/persist/${config.home.homeDirectory}" = {
+      "/persist/home/${config.home.username}" = {
         allowOther = true;
         directories = [
           "games"

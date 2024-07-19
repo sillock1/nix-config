@@ -57,7 +57,7 @@ in {
     pkgs.protontricks
   ];
   home.persistence = {
-    "/persist/${config.home.homeDirectory}" = {
+    "/persist/home/${config.home.username}" = {
       allowOther = true;
       directories = [
         ".factorio"
