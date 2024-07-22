@@ -4,11 +4,12 @@
 {
   imports = [
     ./1password.nix
+    ./discord.nix
     ./firefox.nix
+    ./font.nix
     ./pavucontrol.nix
     ./playerctl.nix
-    ./font.nix
-    ./discord.nix
+    ./thunar.nix
     ./youtube-music.nix
   ];
   xdg.portal.enable = true;

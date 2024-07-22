@@ -6,7 +6,6 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./gamemode.nix
     ./impermanence.nix
     ./locale.nix
     ./nix-ld.nix
@@ -16,7 +15,6 @@
     ./services.nix
     ./shells.nix
     ./sops.nix    
-    ./steam-hardware.nix
     ./tty.nix
   ]
   ++ (builtins.attrValues outputs.nixosModules);
