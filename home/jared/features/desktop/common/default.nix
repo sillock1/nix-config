@@ -3,6 +3,7 @@
 }:
 {
   imports = [
+    ./1password.nix
     ./firefox.nix
     ./pavucontrol.nix
     ./playerctl.nix
