@@ -15,6 +15,7 @@
           "/var/log" # persist logs between reboots for debugging
           "/var/lib/cache" # cache files (restic, nginx, containers)
           "/var/lib/nixos" # nixos state
+          "/etc/NetworkManager/system-connections"
         ];
         files = [
           "/etc/ssh/ssh_host_ed25519_key"
