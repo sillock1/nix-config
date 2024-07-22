@@ -49,7 +49,6 @@
         "Videos"
         ".local/bin"
         ".local/share/nix" # trusted settings and repl history
-        ".ssh"
       ];
     };
   };

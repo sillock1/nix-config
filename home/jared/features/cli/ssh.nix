@@ -28,8 +28,8 @@ in {
   };
 
   home.persistence = {
-    "/persist/home/${config.home.username}".files = [
-      ".ssh/known_hosts"
+    "/persist/home/${config.home.username}".directories = [
+      ".ssh"
     ];
   };
 }
