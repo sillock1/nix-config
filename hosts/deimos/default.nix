@@ -20,6 +20,7 @@
       ../common/global
 
       #Optional config
+      ../common/optional/gaming.nix
       ../common/optional/swww.nix
       ../common/optional/fonts.nix
       ../common/optional/greetd.nix
