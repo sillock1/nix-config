@@ -9,8 +9,6 @@
   ];
 
   home.persistence."/persist/home/${config.home.username}" = {
-    defaultDirectoryMethod = "symlink";
-    allowOther = true;
-    directories = [".config/1Password/"];
+    directories = [".config/1Password"];
   }; 
 }
