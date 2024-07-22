@@ -24,6 +24,7 @@
       ../common/optional/swww.nix
       ../common/optional/fonts.nix
       ../common/optional/greetd.nix
+      ../common/optional/thunar.nix
     ];
 
     boot = {

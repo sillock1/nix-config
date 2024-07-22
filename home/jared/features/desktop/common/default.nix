@@ -9,7 +9,6 @@
     ./font.nix
     ./pavucontrol.nix
     ./playerctl.nix
-    ./thunar.nix
     ./youtube-music.nix
   ];
   xdg.portal.enable = true;
