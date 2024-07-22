@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./1password.nix
     ./bash.nix
     ./direnv.nix
     ./fish.nix
