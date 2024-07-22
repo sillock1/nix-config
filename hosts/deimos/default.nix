@@ -22,7 +22,6 @@
       #Optional config
       ../common/optional/swww.nix
       ../common/optional/fonts.nix
-      #../common/optional/1password.nix
       ../common/optional/greetd.nix
     ];
 
