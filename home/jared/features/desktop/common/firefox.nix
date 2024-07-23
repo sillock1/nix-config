@@ -1,4 +1,7 @@
-{...}:
+{
+  config,
+  ...
+}:
 {
   programs.firefox.enable = true;
   xdg.mimeApps.defaultApplications = {
