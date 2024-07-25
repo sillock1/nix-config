@@ -1,5 +1,8 @@
 {...}:
 {
+  imports = [
+    ./rider.nix
+  ];
   home.packages = with pkgs; [
     cue
     nixd
