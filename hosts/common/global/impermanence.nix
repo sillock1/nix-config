@@ -15,6 +15,7 @@
           "/var/log" # persist logs between reboots for debugging
           "/var/lib/cache" # cache files (restic, nginx, containers)
           "/var/lib/nixos" # nixos state
+          "/var/cache/nix" # persisted cache for building nix packages on tmpfs
           "/etc/NetworkManager/system-connections"
         ];
         files = [
