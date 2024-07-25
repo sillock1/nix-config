@@ -62,5 +62,17 @@
       };
     };
 
+  environment.variables.NIX_REMOTE = "daemon";
+  systemd.services.nix-daemon = {
+    environment = {
+      # Location for temporary files
+      TMPDIR = "/var/cache/nix";
+    };
+    serviceConfig = {
+      # Create /var/cache/nix automatically on Nix Daemon start
+      CacheDirectory = "nix";
+    };
+  };
+
   system.stateVersion = "24.05";
 }
