@@ -28,6 +28,9 @@
     ];
 
     boot = {
+      kernel.sysctl = {
+        "vm.swappiness" = 100;
+      };
       loader = {
         systemd-boot.enable = true;
         efi.canTouchEfiVariables = true;

@@ -9,6 +9,7 @@
     ./font.nix
     ./pavucontrol.nix
     ./playerctl.nix
+    #./rider.nix
     ./youtube-music.nix
   ];
   xdg.portal.enable = true;
