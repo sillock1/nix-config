@@ -29,7 +29,7 @@ in {
 
   home.persistence = {
     "/persist/home/${config.home.username}".files = [
-      ".ssh/known_hosts"
+      #".ssh/known_hosts"
       ".ssh/id_ed25519"
     ];
   };
