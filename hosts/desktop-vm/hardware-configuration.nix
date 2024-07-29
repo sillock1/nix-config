@@ -5,7 +5,7 @@
 
   fileSystems."/persist".neededForBoot = true;
 
-  #fileSystems."/games" = {
-  #  device = "/dev/vdb1";
-  #};
+  fileSystems."/games" = {
+    device = "/dev/vdb1";
+  };
 }
