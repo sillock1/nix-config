@@ -1,26 +1,11 @@
 { lib, username, ... }:
 {
 
-  fileSystems."/nix" = {
-    options = [
-      "compress=zstd"
-      "subvol=nix"
-    ];
-  };
+  fileSystems."/nix".neededForBoot = true;
 
-  fileSystems."/persist" = {
-    neededForBoot = true;
-    options = [
-      "compress=zstd"
-      "subvol=persist"
-    ];
-  };
+  fileSystems."/persist".neededForBoot = true;
 
   fileSystems."/games" = {
-    device = "/dev/vdb";
-    fsType = "btrfs";
-    options = [
-      "noatime"
-    ];
+    device = "/dev/vdb1";
   };
 }
