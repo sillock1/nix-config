@@ -38,6 +38,7 @@ in {
 
   home-manager.users.jared = import ../../../../home/jared/hosts/${config.networking.hostName}.nix;
 
+  services.gnome.gnome-keyring.enable = true;
   security.pam.services = {
     hyprlock = {};
     gdm.enableGnomeKeyring = true;
