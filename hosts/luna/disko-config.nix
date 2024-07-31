@@ -5,7 +5,7 @@
   disko.devices = {
     disk.main = {
       type = "disk";
-      device = "/dev/vda";
+      device = "/dev/sda";
       content = {
         type = "gpt";
         partitions = {
@@ -24,13 +24,13 @@
             };
           };
           encryptedSwap = {
-              size = "32G";
-              content = {
-                type = "swap";
-                randomEncryption = true;
-                priority = 100; # prefer to encrypt as long as we have space for it
-                resumeDevice = true; # resume from hiberation from this device
-              };
+            size = "64G";
+            content = {
+              type = "swap";
+              randomEncryption = true;
+              priority = 100; # prefer to encrypt as long as we have space for it
+              resumeDevice = true; # resume from hiberation from this device
+            };
           };
           luks = {
             size = "100%";
@@ -71,7 +71,7 @@
         fsType = "tmpfs";
         mountOptions = [
           "mode=755"
-          "size=4G"
+          "size=16G"
         ];
       };
     };

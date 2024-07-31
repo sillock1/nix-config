@@ -9,6 +9,6 @@
     };
   };
   home.persistence = {
-    "/persist/${config.home.homeDirectory}".files = [".config/gh/hosts.yml"];
+    "/persist/home/${config.home.username}".files = [".config/gh/hosts.yml"];
   };
 }

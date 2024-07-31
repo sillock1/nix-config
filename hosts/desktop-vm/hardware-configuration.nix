@@ -3,9 +3,11 @@
 
   fileSystems."/nix".neededForBoot = true;
 
-  fileSystems."/persist".neededForBoot = true;
-
-  fileSystems."/games" = {
-    device = "/dev/vdb1";
+  fileSystems."/persist/system" = {
+    neededForBoot = true;
   };
+
+  # fileSystems."/games" = {
+  #   device = "/dev/vdb1";
+  # };
 }

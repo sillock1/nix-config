@@ -11,8 +11,7 @@
     [
       inputs.disko.nixosModules.disko
       ./disko-config.nix
-
-      (modulesPath + "/profiles/qemu-guest.nix")
+      
       ./hardware-configuration.nix
 
       # Users for this machine
@@ -21,9 +20,11 @@
       ../common/global
 
       #Optional config
+      ../common/optional/gaming.nix
       ../common/optional/swww.nix
       ../common/optional/fonts.nix
       ../common/optional/greetd.nix
+      ../common/optional/thunar.nix
     ];
 
     boot = {
@@ -42,7 +43,12 @@
     console.keyMap = "uk";
 
     networking = {
-      hostName = "desktop-vm";
+      hostName = "luna";
+      hostId = pkgs.lib.concatStringsSep "" (
+        pkgs.lib.take 8 (
+          pkgs.lib.stringToCharacters (builtins.hashString "sha256" config.networking.hostName)
+        )
+      );
       firewall.enable = false;
       networkmanager.enable = true;
       useDHCP = lib.mkDefault true;
@@ -70,4 +76,3 @@
 
   system.stateVersion = "24.05";
 }
-
