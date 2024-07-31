@@ -21,9 +21,9 @@ Use the disko utility for declarative disk configuration
 
 Generate host ssh keys for SOPS encryption
 
-`ssh-keygen -q -N "" -t ed25519 -f /mnt/persist/etc/ssh/ssh_host_ed25519_key`
+`ssh-keygen -q -N "" -t ed25519 -f /mnt/persist/system/etc/ssh/ssh_host_ed25519_key`
 
-`ssh-keygen -q -N "" -t rsa -b 4096 -f /mnt/persist/etc/ssh/ssh_host_rsa_key`
+`ssh-keygen -q -N "" -t rsa -b 4096 -f /mnt/persist/system/etc/ssh/ssh_host_rsa_key`
 
 Output the age key
 
