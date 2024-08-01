@@ -11,7 +11,7 @@
     "x-scheme-handler/https" = ["firefox.desktop"];
   };
 
-    home.persistence."/persist/home/${config.home.username}" = {
-      directories = [".mozilla/firefox"];
+  home.persistence."/persist/home/${config.home.username}" = {
+    directories = [".mozilla/firefox"];
   }; 
 }
