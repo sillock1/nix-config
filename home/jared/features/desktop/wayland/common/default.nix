@@ -7,6 +7,7 @@
     ./hypridle.nix
     ./hyprlock.nix
     ./kitty.nix
+    ./screenshots.nix
     ./waybar.nix
     ./wlogout.nix
     ./bemenu.nix
