@@ -13,6 +13,7 @@
     packages = with pkgs; [
       gamescope
       lutris
+      wineWowPackages.stable
     ];
     persistence = {
       "/persist/home/${config.home.username}" = {
