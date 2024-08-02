@@ -10,7 +10,10 @@
   ];
 
   home = {
-    packages = with pkgs; [gamescope];
+    packages = with pkgs; [
+      gamescope
+      lutris
+    ];
     persistence = {
       "/persist/home/${config.home.username}" = {
         allowOther = true;
