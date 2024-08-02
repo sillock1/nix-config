@@ -15,5 +15,6 @@
     shfmt
     yamllint
     restic
+    kubectl
   ];
 }
