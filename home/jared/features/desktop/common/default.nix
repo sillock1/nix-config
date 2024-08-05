@@ -1,4 +1,6 @@
 {
+  lib,
+  pkgs,
   ...
 }:
 {
@@ -13,4 +15,5 @@
     ./youtube-music.nix
   ];
   xdg.portal.enable = true;
+  services.gpg-agent.pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
 }
