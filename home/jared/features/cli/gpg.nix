@@ -1,7 +1,5 @@
 {
   pkgs,
-  config,
-  lib,
   ...
 }: 
 {
@@ -9,10 +7,10 @@
     enable = true;
     enableSshSupport = true;
     enableExtraSocket = true;
-    pinentryPackage =
-      if config.gtk.enable
-      then pkgs.pinentry-gnome3
-      else pkgs.pinentry-tty;
+    pinentryPackage = pkgs.pinentry-tty;
+    sshKeys = ["426EB695ECC57AA2B5828135EDEB772D70EA4FE9"];
   };
-  home.packages = lib.optional config.gtk.enable pkgs.gcr;
+  home.packages = with pkgs; [
+    gnupg
+  ];
 }
