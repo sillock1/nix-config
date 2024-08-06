@@ -15,4 +15,5 @@
   };
 
   security.pam.sshAgentAuth.enable = true;
+  services.pcscd.enable = true;
 }
