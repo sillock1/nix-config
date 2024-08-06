@@ -13,10 +13,10 @@ in {
       p = "pull --ff-only";
     };
     userName = "sillock1";
-    userEmail = lib.mkDefault "github@sillock.io";
+    userEmail = lib.mkDefault "git@sillock.io";
     extraConfig = {
       init.defaultBranch = "main";
-      user.signing.key = "64E59685";
+      user.signing.key = "5310B12364E59685!";
       commit.gpgSign = lib.mkDefault true;
       gpg.program = "${config.programs.gpg.package}/bin/gpg2";
 
