@@ -48,6 +48,7 @@ in
       home.packages = with pkgs; [
         grimblast
         hyprpicker
+        xorg.xrandr
       ];
       wayland.windowManager.hyprland = {
         enable = true;
