@@ -23,8 +23,10 @@
       # Optional config
       ../_common/cli/fonts.nix
       ../_common/cli/greetd.nix
+      ../_common/desktop/audio.nix
       ../_common/desktop/gaming.nix
       ../_common/desktop/thunar.nix
+      ../_common/desktop/xwayland.nix
     ];
 
     boot = {
@@ -54,10 +56,6 @@
 
     hardware = {
       opengl.enable = true;
-      pulseaudio = {
-        enable = true;
-        support32Bit = true;
-      };
     };
 
   system.stateVersion = "24.05";
