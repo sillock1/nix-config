@@ -52,7 +52,6 @@ in
       ];
       wayland.windowManager.hyprland = {
         enable = true;
-        xwayland.enable = true;
         package = pkgs.hyprland.override {wrapRuntimeDeps = false;};
         systemd = {
           enable = true;

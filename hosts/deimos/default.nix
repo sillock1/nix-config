@@ -14,17 +14,17 @@
       
       ./hardware-configuration.nix
 
+      # Global config
+      ../_common/base
+
       # Users for this machine
-      ../common/users/jared
+      ../_common/users/jared
 
-      ../common/global
-
-      #Optional config
-      ../common/optional/gaming.nix
-      ../common/optional/swww.nix
-      ../common/optional/fonts.nix
-      ../common/optional/greetd.nix
-      ../common/optional/thunar.nix
+      # Optional config
+      ../_common/cli/fonts.nix
+      ../_common/cli/greetd.nix
+      ../_common/desktop/gaming.nix
+      ../_common/desktop/thunar.nix
     ];
 
     boot = {
@@ -43,7 +43,6 @@
     };
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-    console.keyMap = "uk";
 
     networking = {
       hostName = "deimos";
@@ -52,7 +51,6 @@
           pkgs.lib.stringToCharacters (builtins.hashString "sha256" config.networking.hostName)
         )
       );
-      firewall.enable = false;
       networkmanager.enable = true;
       useDHCP = lib.mkDefault true;
     };
