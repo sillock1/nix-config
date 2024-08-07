@@ -14,17 +14,17 @@
       
       ./hardware-configuration.nix
 
+      # Global config
+      ../_common/base
+
       # Users for this machine
-      ../common/users/jared
+      ../_common/users/jared
 
-      ../common/global
-
-      #Optional config
-      ../common/optional/gaming.nix
-      ../common/optional/swww.nix
-      ../common/optional/fonts.nix
-      ../common/optional/greetd.nix
-      ../common/optional/thunar.nix
+      # Optional config
+      ../_common/cli/fonts.nix
+      ../_common/cli/greetd.nix
+      ../_common/desktop/gaming.nix
+      ../_common/desktop/thunar.nix
     ];
 
     boot = {
@@ -40,7 +40,6 @@
     };
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-    console.keyMap = "uk";
 
     networking = {
       hostName = "luna";
@@ -49,7 +48,6 @@
           pkgs.lib.stringToCharacters (builtins.hashString "sha256" config.networking.hostName)
         )
       );
-      firewall.enable = false;
       networkmanager.enable = true;
       useDHCP = lib.mkDefault true;
     };
@@ -61,18 +59,6 @@
         support32Bit = true;
       };
     };
-
-  environment.variables.NIX_REMOTE = "daemon";
-  systemd.services.nix-daemon = {
-    environment = {
-      # Location for temporary files
-      TMPDIR = "/var/cache/nix";
-    };
-    serviceConfig = {
-      # Create /var/cache/nix automatically on Nix Daemon start
-      CacheDirectory = "nix";
-    };
-  };
 
   system.stateVersion = "24.05";
 }
