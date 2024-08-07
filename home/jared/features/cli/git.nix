@@ -12,13 +12,13 @@ in {
     aliases = {
       p = "pull --ff-only";
     };
-    userName = "sillock1";
+    userName = "jared";
     userEmail = lib.mkDefault "git@sillock.io";
     extraConfig = {
       init.defaultBranch = "main";
       user.signing.key = "AD6F1BCEC838856376CC8E9F5310B12364E59685!";
       commit.gpgSign = lib.mkDefault true;
-      gpg.program = "${config.programs.gpg.package}/bin/gpg2";
+      gpg.program = "gpg2";
 
       merge.conflictStyle = "zdiff3";
       commit.verbose = true;
