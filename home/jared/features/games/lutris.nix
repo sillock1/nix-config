@@ -7,7 +7,8 @@
   home = {
     packages = with pkgs; [
       lutris
-      wineWowPackages.stable
+      winetricks
+      wineWowPackages.waylandFull
     ];
     persistence = {
       "/persist/home/${config.home.username}" = {
