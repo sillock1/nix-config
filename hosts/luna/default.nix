@@ -56,16 +56,23 @@
       useDHCP = lib.mkDefault true;
     };
 
-    services.xserver.videoDrivers = [ "amdgpu" ];
+    # amdgpu I believe gets renamed to modesetting
+    services.xserver.videoDrivers = [ "modesetting" ];
 
     hardware = {
       opengl = {
         enable = true;
+        # May need this in the next release when opengl renames to graphics
+        #enable32Bit = true;
         extraPackages = with pkgs; [
           amdvlk
+          vaapiVdpau
+          libvdpau-va-gl
         ];
         extraPackages32 = with pkgs; [
           driversi686Linux.amdvlk
+          vaapiVdpau
+          libvdpau-va-gl          
         ];
       };
     };
