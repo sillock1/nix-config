@@ -67,9 +67,13 @@ in
             "MOZ_ENABLE_WAYLAND,1" # for firefox to run on wayland
             "MOZ_WEBRENDER,1"
             "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-            "QT_QPA_PLATFORM,wayland"
-            "SDL_VIDEODRIVER,wayland"
             "GDK_BACKEND,wayland"
+            "QT_QPA_PLATFORM,wayland;xcb"
+            "SDL_VIDEODRIVER,wayland"
+            "CLUTTER_BACKEND,wayland"
+            "XDG_CURRENT_DESKTOP,Hyprland"
+            "XDG_SESSION_TYPE,wayland"
+            "XDG_SESSION_DESKTOP,Hyprland"
           ];
         };
         extraConfig = builtins.readFile ../../../../config/hyprland/hyprland.conf;
