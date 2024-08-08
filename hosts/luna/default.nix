@@ -26,14 +26,14 @@
       ../_common/desktop/audio.nix
       ../_common/desktop/gaming.nix
       ../_common/desktop/thunar.nix
-      ../_common/desktop/xwayland.nix
+      ../_common/desktop/hyprland.nix
       ../_common/desktop/gnome.nix
     ];
 
     boot = {
       loader = {
         systemd-boot.enable = true;
-        efi.canTouchEfiVariables = false;
+        efi.canTouchEfiVariables = true;
       };
       initrd = {
         kernelModules = [ "amdgpu" ];
