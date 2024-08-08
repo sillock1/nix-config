@@ -27,14 +27,16 @@
       ../_common/desktop/gaming.nix
       ../_common/desktop/thunar.nix
       ../_common/desktop/xwayland.nix
+      ../_common/desktop/gnome.nix
     ];
 
     boot = {
       loader = {
         systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
+        efi.canTouchEfiVariables = false;
       };
       initrd = {
+        kernelModules = [ "amdgpu" ];
         availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
       };
       kernelModules = [ "kvm-amd" ];
@@ -54,8 +56,18 @@
       useDHCP = lib.mkDefault true;
     };
 
+    services.xserver.videoDrivers = [ "amdgpu" ];
+
     hardware = {
-      opengl.enable = true;
+      opengl = {
+        enable = true;
+        extraPackages = with pkgs; [
+          amdvlk
+        ];
+        extraPackages32 = with pkgs; [
+          driversi686Linux.amdvlk
+        ];
+      };
     };
 
   system.stateVersion = "24.05";
