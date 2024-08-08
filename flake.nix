@@ -32,10 +32,6 @@
     };
 
     nix-inspect.url = "github:bluskript/nix-inspect";
-
-    anyrun.url = "github:Kirottu/anyrun";
-    anyrun.inputs.nixpkgs.follows = "nixpkgs";
-    swww.url = "github:LGFae/swww";
   };
 
   outputs = {
