@@ -15,7 +15,7 @@
       ./hardware-configuration.nix
 
       # Global config
-      ../_common/base
+      ../_common/global
 
       # Users for this machine
       ../_common/users/jared

@@ -15,12 +15,13 @@
       ./hardware-configuration.nix
 
       # Global config
-      ../_common/base
+      ../_common/global
 
       # Users for this machine
       ../_common/users/jared
 
       # Optional config
+      ../_common/base/virtualisation.nix
       ../_common/cli/fonts.nix
       ../_common/cli/greetd.nix
       ../_common/desktop/audio.nix
