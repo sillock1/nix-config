@@ -5,9 +5,10 @@
 }:
 {
   imports = [
-    ./steam.nix
-    ./prism-launcher.nix
     ./lutris.nix
+    ./prism-launcher.nix
+    ./r2modman.nix
+    ./steam.nix
   ];
 
   home = {
