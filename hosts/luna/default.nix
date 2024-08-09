@@ -26,7 +26,7 @@
       ../_common/desktop/audio.nix
       ../_common/desktop/gaming.nix
       ../_common/desktop/thunar.nix
-      ../_common/desktop/hyprland.nix
+      ../_common/desktop/xwayland.nix
       ../_common/desktop/gnome.nix
     ];
 
@@ -41,6 +41,7 @@
       };
       kernelModules = [ "kvm-amd" ];
       kernelPackages = pkgs.linuxPackages_latest;
+      supportedFilesystems = [ "ntfs" ];
     };
 
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
@@ -56,23 +57,20 @@
       useDHCP = lib.mkDefault true;
     };
 
-    # amdgpu I believe gets renamed to modesetting
-    services.xserver.videoDrivers = [ "modesetting" ];
+    services.xserver.videoDrivers = [ "amdgpu" ];
 
     hardware = {
+      cpu.amd.updateMicrocode = true;
       opengl = {
         enable = true;
-        # May need this in the next release when opengl renames to graphics
-        #enable32Bit = true;
+        driSupport = true;
+        driSupport32Bit = true;
         extraPackages = with pkgs; [
-          amdvlk
-          vaapiVdpau
-          libvdpau-va-gl
+          rocm-opencl-icd
+          rocm-opencl-runtime
         ];
         extraPackages32 = with pkgs; [
           driversi686Linux.amdvlk
-          vaapiVdpau
-          libvdpau-va-gl          
         ];
       };
     };
