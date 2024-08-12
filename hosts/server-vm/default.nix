@@ -15,14 +15,17 @@
       (modulesPath + "/profiles/qemu-guest.nix")
       ./hardware-configuration.nix
 
-      # Users for this machine
-      ../common/users/jared
+      # Global config
+      ../_common/global
 
-      ../common/global
+      # Users for this machine
+      ../_common/users/jared
+
+      # Optional config
+      ../_common/base/virtualisation.nix
 
       #Optional config
-      ../common/optional/swww.nix
-      ../common/optional/fonts.nix
+      ../_common/cli/fonts.nix
     ];
 
     boot = {
@@ -87,6 +90,14 @@
           enable = true;
           package = pkgs.unstable.blocky;
           config = import ./config/blocky.nix;
+        };
+        matchbox = {
+          enable = true;
+          dataDir = "/var/lib/matchbox";
+        };
+        dnsmasq = {
+          enable = true;
+          hostIP = "10.1.7.128";
         };
       };
     };
