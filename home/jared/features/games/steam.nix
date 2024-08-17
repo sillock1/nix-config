@@ -36,8 +36,6 @@ in {
         ".factorio"
         ".config/unity3d/Berserk Games/Tabletop Simulator"
         ".local/share/Tabletop Simulator"
-        ".local/share/Paradox Interactive"
-        ".paradoxlauncher"
         ".local/share/Steam"
       ];
     };
