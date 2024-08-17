@@ -34,7 +34,6 @@ in
         autoStart = true;
         ports = [ 
           "8080:8080"
-          "8081:8081"
         ];
         volumes = [
           "/etc/matchbox:/etc/matchbox:Z,ro"
@@ -42,7 +41,6 @@ in
         ];
         cmd = [
           "-address=0.0.0.0:8080"
-          "-rpc-address=0.0.0.0:8081"
           "-log-level=debug"
         ];
       };
