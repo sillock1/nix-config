@@ -22,6 +22,7 @@ in
 
   config = lib.mkIf cfg.enable {
     system.activationScripts.makeMatchboxDataDirs = lib.stringAfter [ "var" ] ''
+        mkdir -p "/etc/matchbox"
         mkdir -p "${cfg.dataDir}/{assets},{groups},{profiles}"
         chown -R 999:999 ${cfg.dataDir}
       '';

@@ -25,6 +25,7 @@ in
         autoStart = true;
         extraOptions = [
           "--network=host"
+          "--cap-add=NET_ADMIT"
         ];
         cmd = [
           "--log-dhcp" 
