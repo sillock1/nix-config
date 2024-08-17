@@ -37,7 +37,7 @@ in
           "/etc/matchbox:/etc/matchbox:Z,ro"
           "${cfg.dataDir}:/var/lib/matchbox:Z"
         ];
-        extraOptions = [
+        cmd = [
           "-address=0.0.0.0:8080"
           "-rpc-address=0.0.0.0:8081"
           "-log-level=debug"
