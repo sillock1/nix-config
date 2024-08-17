@@ -23,7 +23,9 @@ in
   config = lib.mkIf cfg.enable {
     system.activationScripts.makeMatchboxDataDirs = lib.stringAfter [ "var" ] ''
         mkdir -p "/etc/matchbox"
-        mkdir -p "${cfg.dataDir}/{assets},{groups},{profiles}"
+        mkdir -p "${cfg.dataDir}/assets"
+        mkdir -p "${cfg.dataDir}/groups"
+        mkdir -p "${cfg.dataDir}/profiles"
         chown -R 999:999 ${cfg.dataDir}
       '';
     virtualisation.oci-containers.containers = {
