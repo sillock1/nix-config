@@ -103,12 +103,13 @@
             inherit inputs outputs;
           };
         };
-      };
-      homeConfigurations = {
-        "jared@desktop-vm" = lib.homeManagerConfiguration {
-          modules = [ ./home/jared/hosts/desktop-vm.nix ./home/jared/nixpkgs.nix ];
-          pkgs = pkgsFor.x86_64-linux;
-          extraSpecialArgs = {
+
+        sgr = lib.nixosSystem {
+          modules = [
+            ./hosts/sgr
+            inputs.disko.nixosModules.disko
+          ];
+          specialArgs = {
             inherit inputs outputs;
           };
         };

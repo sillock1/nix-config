@@ -15,7 +15,7 @@ in
     };
     listenPort = lib.mkOption {
       type = lib.types.int;
-      default = 5454;
+      default = 54;
     };
     config = lib.mkOption {
       type = lib.types.lines;
