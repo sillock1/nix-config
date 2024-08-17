@@ -25,6 +25,8 @@ in
         autoStart = true;
         extraOptions = [
           "--network=host"
+        ];
+        cmd = [
           "--log-dhcp" 
           "--log-queries" 
           "--no-daemon"
