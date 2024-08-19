@@ -16,5 +16,8 @@
     yamllint
     restic
     kubectl
+    envsubst
+    sops
+    ssh-to-age
   ];
 }
