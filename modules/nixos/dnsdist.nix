@@ -15,7 +15,7 @@ in
     };
     listenPort = lib.mkOption {
       type = lib.types.int;
-      default = 54;
+      default = 53;
     };
     config = lib.mkOption {
       type = lib.types.lines;
@@ -31,5 +31,4 @@ in
     networking.firewall.allowedTCPPorts = [ cfg.listenPort ];
     networking.firewall.allowedUDPPorts = [ cfg.listenPort ];
   };
-
 }
