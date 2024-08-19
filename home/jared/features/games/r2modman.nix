@@ -4,7 +4,7 @@
   config,
   ...
 }: {
-  home.packages = with pkgs; [
+  home.packages = with pkgs.unstable; [
     r2modman
   ];
 

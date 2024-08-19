@@ -37,6 +37,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     systems,
     ...
@@ -50,6 +51,12 @@
         import nixpkgs {
           inherit system;
           config.allowUnfree = true;
+          overlays = [
+            # make unstable packages available via overlay
+            (final: prev: {
+              unstable = nixpkgs-unstable.legacyPackages.${prev.system};
+            })
+          ];
         }
     );
     in
