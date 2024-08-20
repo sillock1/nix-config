@@ -8,9 +8,10 @@
     r2modman
   ];
 
-  home.persistence = {
-    "/persist/home/${config.home.username}".directories = [
-      ".config/r2modmanPlus-local"
-    ];
-  };
+  # Enable when bug is fixed
+  #home.persistence = {
+  #  "/persist/home/${config.home.username}".directories = [
+  #    ".config/r2modmanPlus-local"
+  #  ];
+  #};
 }
