@@ -1,6 +1,7 @@
-{ config, pkgs, lib, ...}:
+{ ...}:
 {
-imports = [
-    ../global
-  ];
+  imports = [
+      ../global
+      ../features/development
+    ];
 }
