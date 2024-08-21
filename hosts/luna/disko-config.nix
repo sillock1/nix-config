@@ -5,7 +5,7 @@
   disko.devices = {
     disk.main = {
       type = "disk";
-      device = "/dev/disk/by-id/nvme-WD_Blue_SN570_250GB_22508U400248";
+      device = "/dev/disk/by-id/nvme-eui.0025385a71b18273";
       content = {
         type = "gpt";
         partitions = {
