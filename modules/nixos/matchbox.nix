@@ -32,15 +32,19 @@ in
       matchbox = {
         image = "quay.io/poseidon/matchbox:${cfg.apiVersion}";
         autoStart = true;
-        ports = [ 
-          "8080:8080"
+        extraOptions = [
+          "--network=host"
+          "--cap-add=NET_BIND_SERVICE"
+        ];
+        ports = [
+          "80:80"
         ];
         volumes = [
           "/etc/matchbox:/etc/matchbox:Z,ro"
           "${cfg.dataDir}:/var/lib/matchbox:Z"
         ];
         cmd = [
-          "-address=0.0.0.0:8080"
+          "-address=0.0.0.0:80"
           "-log-level=debug"
         ];
       };
