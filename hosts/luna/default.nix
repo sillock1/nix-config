@@ -1,17 +1,16 @@
-{ 
-  config, 
-  lib, 
+{
+  config,
+  lib,
   pkgs,
-  modulesPath,
   inputs,
-  ... 
+  ...
 }:
 {
   imports =
     [
       inputs.disko.nixosModules.disko
       ./disko-config.nix
-      
+
       ./hardware-configuration.nix
 
       # Global config
@@ -22,7 +21,6 @@
 
       # Optional config
       ../_common/base/virtualisation.nix
-      ../_common/cli/fonts.nix
       ../_common/cli/greetd.nix
       ../_common/desktop/audio.nix
       ../_common/desktop/gaming.nix

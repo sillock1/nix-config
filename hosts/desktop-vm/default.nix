@@ -1,10 +1,10 @@
-{ 
-  config, 
-  lib, 
+{
+  config,
+  lib,
   pkgs,
   modulesPath,
   inputs,
-  ... 
+  ...
 }:
 {
   imports =
@@ -21,8 +21,6 @@
       ../common/global
 
       #Optional config
-      ../common/optional/swww.nix
-      ../common/optional/fonts.nix
       ../common/optional/greetd.nix
     ];
 
@@ -70,4 +68,3 @@
 
   system.stateVersion = "24.05";
 }
-

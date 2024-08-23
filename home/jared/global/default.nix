@@ -5,14 +5,13 @@
   outputs,
   pkgs,
   ...
-}: 
+}:
 {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     ../features/cli
     ../features/nvim
-    ]
-    ++ (builtins.attrValues outputs.homeManagerModules);
+    ];
 
   nix = {
     package = lib.mkDefault pkgs.nix;

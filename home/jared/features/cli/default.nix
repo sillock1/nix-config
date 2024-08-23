@@ -4,6 +4,7 @@
     ./bash.nix
     ./direnv.nix
     ./fish.nix
+    ./fonts.nix
     ./gh.nix
     ./git.nix
     ./gpg.nix
