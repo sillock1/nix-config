@@ -30,27 +30,16 @@ in
           "--cap-add=NET_BIND_SERVICE"
         ];
         cmd = [
-          "--log-dhcp" 
-          "--log-queries" 
+          "--log-dhcp"
+          "--log-queries"
           "--no-daemon"
           "--port=0"
           "--dhcp-range=10.1.7.1,proxy,255.255.255.0"
           "--enable-tftp"
           "--tftp-root=/var/lib/tftpboot"
-          "--pxe-service=net:#ipxe,x86PC,,undionly.kpxe"
-          "--pxe-service=net:#ipxe,X86-64_EFI,,ipxe.efi"
-          "--dhcp-match=set:bios,option:client-arch,0"
-          "--dhcp-boot=tag:bios,undionly.kpxe"
-          "--dhcp-match=set:efi32,option:client-arch,6"
-          "--dhcp-boot=tag:efi32,ipxe.efi"
-          "--dhcp-match=set:efibc,option:client-arch,7"
-          "--dhcp-boot=tag:efibc,ipxe.efi"
-          "--dhcp-match=set:efi64,option:client-arch,9"
-          "--dhcp-boot=tag:efi64,ipxe.efi"
-          "--dhcp-match=set:arm64,option:client-arch,11"
-          "--dhcp-boot=tag:arm64,ipxe-arm64.efi"
+          "--pxe-service=tag:#ipxe,x86PC,\"PXE chainload to iPXE\",undionly.kpxe"
           "--dhcp-userclass=set:ipxe,iPXE"
-          "--dhcp-boot=tag:ipxe,http://${cfg.hostIP}/boot.ipxe"
+          "--pxe-service=tag:ipxe,x86PC,\"iPXE\",http://matchbox.pill.ac:8080/boot.ipxe"
         ];
       };
     };
