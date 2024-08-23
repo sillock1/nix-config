@@ -1,11 +1,8 @@
 {
-  inputs,
-  outputs,
   ...
 }:
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
     ./impermanence.nix
     ./locale.nix
     ./nix-ld.nix
@@ -14,22 +11,9 @@
     ./packages.nix
     ./services.nix
     ./shells.nix
-    ./sops.nix    
+    ./sops.nix
     ./tty.nix
-  ]
-  ++ (builtins.attrValues outputs.nixosModules);
-
-  home-manager.useGlobalPkgs = true;
-  home-manager.extraSpecialArgs = {
-    inherit inputs outputs;
-  };
-
-  nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
-    config = {
-      allowUnfree = true;
-    };
-  };
+  ];
 
   # Fix for qt6 plugins
   environment.profileRelativeSessionVariables = {

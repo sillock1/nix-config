@@ -24,7 +24,6 @@ in {
       "wheel"
       "wireshark"
     ];
-    
 
     openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/jared/config/ssh/ssh.pub);
     hashedPasswordFile = config.sops.secrets."users/jared/password".path;

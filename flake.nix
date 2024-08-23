@@ -32,94 +32,52 @@
     };
 
     nix-inspect.url = "github:bluskript/nix-inspect";
+
+    talhelper = {
+      url = "github:budimanjojo/talhelper";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
-    home-manager,
-    systems,
     ...
   } @inputs:
   let
-    inherit (self) outputs;
-    lib = nixpkgs.lib // home-manager.lib;
-    forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
-    pkgsFor = lib.genAttrs (import systems) (
+    supportedSystems = ["x86_64-linux" "aarch64-darwin"];
+    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+    overlays = import ./overlays {inherit inputs;};
+    mkSystemLib = import ./lib/mkSystem.nix {inherit inputs overlays;};
+    flake-packages = self.packages;
+
+    legacyPackages = forAllSystems (
       system:
         import nixpkgs {
           inherit system;
+          overlays = builtins.attrValues overlays;
           config.allowUnfree = true;
-          overlays = [
-            # make unstable packages available via overlay
-            (final: prev: {
-              unstable = nixpkgs-unstable.legacyPackages.${prev.system};
-            })
-          ];
         }
     );
     in
     {
-      inherit lib;
-      nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
+      inherit overlays;
 
-      overlays = import ./overlays {inherit inputs outputs;};
-
-      packages = forEachSystem (pkgs: import ./pkgs {inherit pkgs;});
-
+      packages = forAllSystems (
+        system: let
+          pkgs = legacyPackages.${system};
+        in
+          import ./pkgs {
+            inherit pkgs;
+            inherit inputs;
+          }
+      );
       nixosConfigurations = {
-
-        luna = lib.nixosSystem {
-          modules = [
-            ./hosts/luna
-            inputs.disko.nixosModules.disko
-          ];
-          specialArgs = {
-            inherit inputs outputs;
-          };
-        };
-
-        deimos = lib.nixosSystem {
-          modules = [
-            ./hosts/deimos
-            inputs.disko.nixosModules.disko
-          ];
-          specialArgs = {
-            inherit inputs outputs;
-          };
-        };
-
-        desktop-vm = lib.nixosSystem {
-          modules = [
-            ./hosts/desktop-vm
-            inputs.disko.nixosModules.disko
-          ];
-          specialArgs = {
-            inherit inputs outputs;
-          };
-        };
-
-        server-vm = lib.nixosSystem {
-          modules = [
-            ./hosts/server-vm
-            inputs.disko.nixosModules.disko
-          ];
-          specialArgs = {
-            inherit inputs outputs;
-          };
-        };
-
-        sgr = lib.nixosSystem {
-          modules = [
-            ./hosts/sgr
-            inputs.disko.nixosModules.disko
-          ];
-          specialArgs = {
-            inherit inputs outputs;
-          };
-        };
+        luna = mkSystemLib.mkNixosSystem "x86_64-linux" "luna" flake-packages;
+        deimos = mkSystemLib.mkNixosSystem "x86_64-linux" "deimos" flake-packages;
+        sgr = mkSystemLib.mkNixosSystem "x86_64-linux" "sgr" flake-packages;
+        desktop-vm = mkSystemLib.mkNixosSystem "x86_64-linux" "desktop-vm" flake-packages;
+        server-vm = mkSystemLib.mkNixosSystem "x86_64-linux" "server-vm" flake-packages;
       };
   };
 }

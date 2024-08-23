@@ -1,4 +1,5 @@
-{ 
+{
+  inputs,
   pkgs,
   ...
 }:
@@ -6,6 +7,7 @@
   imports = [
     ./vscode.nix
   ];
+
   home.packages = with pkgs; [
     cue
     nixd
@@ -19,5 +21,6 @@
     envsubst
     sops
     ssh-to-age
+    inputs.talhelper.packages.${system}.default
   ];
 }

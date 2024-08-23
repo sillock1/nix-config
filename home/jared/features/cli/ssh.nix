@@ -2,11 +2,10 @@
   outputs,
   lib,
   config,
+  hostname,
   ...
-}: let
-  nixosConfigs = builtins.attrNames outputs.nixosConfigurations;
-  hostnames = lib.unique (nixosConfigs);
-in {
+}:
+{
   programs.ssh = {
     enable = true;
     matchBlocks = {
@@ -17,9 +16,9 @@ in {
             "*.sillock.io"
             "*.sillock.cloud"
           ]
-          ++ hostnames);
+          ++ [hostname]);
         forwardAgent = true;
-        
+
         setEnv.WAYLAND_DISPLAY = "wayland-waypipe";
         extraOptions.StreamLocalBindUnlink = "yes";
       };

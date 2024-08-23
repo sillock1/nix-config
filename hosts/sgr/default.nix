@@ -1,17 +1,17 @@
-{ 
-  config, 
-  lib, 
+{
+  config,
+  lib,
   pkgs,
   modulesPath,
   inputs,
-  ... 
+  ...
 }:
 {
   imports =
     [
       inputs.disko.nixosModules.disko
       ./disko-config.nix
-      
+
       (modulesPath + "/profiles/qemu-guest.nix")
       ./hardware-configuration.nix
 
@@ -23,9 +23,6 @@
 
       # Optional config
       ../_common/base/virtualisation.nix
-
-      #Optional config
-      ../_common/cli/fonts.nix
     ];
 
     boot = {
@@ -105,4 +102,3 @@
   hardware.opengl.enable = true;
   system.stateVersion = "24.05";
 }
-
