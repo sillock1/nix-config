@@ -21,6 +21,7 @@
     envsubst
     sops
     ssh-to-age
+    talosctl
     inputs.talhelper.packages.${system}.default
   ];
 }
