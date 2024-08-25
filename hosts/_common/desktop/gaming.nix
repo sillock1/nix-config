@@ -9,10 +9,11 @@
     gamescopeSession.enable = true;
   };
 
+  hardware.xone.enable = true;
   environment.systemPackages = with pkgs; [
     # Steam
     mangohud
-    
+
     # WINE
     wine
     winetricks
