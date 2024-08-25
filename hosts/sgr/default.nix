@@ -88,13 +88,9 @@
           package = pkgs.unstable.blocky;
           config = import ./config/blocky.nix;
         };
-        matchbox = {
+        haproxy = {
           enable = true;
-          dataDir = "/var/lib/matchbox";
-        };
-        dnsmasq = {
-          enable = true;
-          hostIP = "10.1.7.128";
+          config = builtins.readFile ./config/haproxy.cfg;
         };
       };
     };
