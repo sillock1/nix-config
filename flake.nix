@@ -42,6 +42,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     ...
   } @inputs:
   let
