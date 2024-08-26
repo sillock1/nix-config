@@ -21,7 +21,12 @@
     envsubst
     sops
     ssh-to-age
-    talosctl
+    helmfile
+
+    # Unstable packages
+    unstable.talosctl
+
+    # Flake packages
     inputs.talhelper.packages.${system}.default
   ];
 }
