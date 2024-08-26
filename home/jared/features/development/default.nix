@@ -21,7 +21,7 @@
     envsubst
     sops
     ssh-to-age
-    helm
+    kubernetes-helm
     helmfile
 
     # Unstable packages
