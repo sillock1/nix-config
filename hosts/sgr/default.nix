@@ -58,7 +58,7 @@
           restartUnits = [ "bind.service" ];
           owner = config.users.users.named.name;
         };
-        "networking/bind/zones/internal" = {
+        "networking/bind/zones/pill.ac" = {
           restartUnits = [ "bind.service" ];
           owner = config.users.users.named.name;
         };
