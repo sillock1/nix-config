@@ -46,10 +46,10 @@ logging {
   category default  { stdout; };
 };
 
-zone "pill.ac." {
+zone "internal." {
   type master;
-  file "${config.sops.secrets."networking/bind/zones/pill.ac".path}";
-  journal "${config.services.bind.directory}/db.pill.ac.jnl";
+  file "${config.sops.secrets."networking/bind/zones/internal".path}";
+  journal "${config.services.bind.directory}/db.internal.jnl";
   update-policy {
     grant ddnsupdate zonesub ANY;
     grant * self * A;
