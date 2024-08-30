@@ -30,7 +30,7 @@
         ];
       })
     helmfile
-
+    lens
     # Unstable packages
     unstable.talosctl
 
