@@ -3,7 +3,7 @@
   config,
   pkgs,
   ...
-}: 
+}:
 let
   cfg = config.modules.desktop.hyprland;
 in
@@ -69,7 +69,7 @@ in
             "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
             "GDK_BACKEND,wayland"
             "QT_QPA_PLATFORM,wayland;xcb"
-            "SDL_VIDEODRIVER,wayland"
+            "SDL_VIDEODRIVER,wayland,x11"
             "CLUTTER_BACKEND,wayland"
             "XDG_CURRENT_DESKTOP,Hyprland"
             "XDG_SESSION_TYPE,wayland"
@@ -85,5 +85,5 @@ in
       };
     })
    ];
-  
+
 }
