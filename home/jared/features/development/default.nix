@@ -21,7 +21,14 @@
     envsubst
     sops
     ssh-to-age
-    kubernetes-helm
+    (wrapHelm kubernetes-helm {
+        plugins = with pkgs.kubernetes-helmPlugins; [
+          helm-secrets
+          helm-diff
+          helm-s3
+          helm-git
+        ];
+      })
     helmfile
 
     # Unstable packages
