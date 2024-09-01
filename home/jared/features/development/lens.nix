@@ -4,9 +4,10 @@
   ...
 }:
 {
-  home.packages = with pkgs; [
-    lens
-  ];
+  home = {
+    packages = with pkgs; [
+      lens
+    ];
 
     persistence = {
       "/persist/home/${config.home.username}" = {
@@ -16,4 +17,5 @@
         ];
       };
     };
+  };
 }
