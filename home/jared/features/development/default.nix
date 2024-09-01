@@ -6,6 +6,7 @@
 {
   imports = [
     ./vscode.nix
+    ./lens.nix
   ];
 
   home.packages = with pkgs; [
@@ -30,7 +31,6 @@
         ];
       })
     helmfile
-    lens
     # Unstable packages
     unstable.talosctl
 
