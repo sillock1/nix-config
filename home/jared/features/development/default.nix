@@ -31,6 +31,7 @@
         ];
       })
     helmfile
+    go-task
     # Unstable packages
     unstable.talosctl
 
