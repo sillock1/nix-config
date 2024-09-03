@@ -20,7 +20,6 @@
     restic
     kubectl
     envsubst
-    sops
     ssh-to-age
     (wrapHelm kubernetes-helm {
         plugins = with pkgs.kubernetes-helmPlugins; [
@@ -34,7 +33,7 @@
     go-task
     # Unstable packages
     unstable.talosctl
-
+    unstable.sops
     # Flake packages
     inputs.talhelper.packages.${system}.default
   ];
