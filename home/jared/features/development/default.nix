@@ -31,6 +31,7 @@
       })
     helmfile
     go-task
+    fluxcd
     # Unstable packages
     unstable.talosctl
     unstable.sops
