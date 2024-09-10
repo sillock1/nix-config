@@ -7,6 +7,7 @@
   imports = [
     ./vscode.nix
     ./lens.nix
+    ./jetbrains.nix
   ];
 
   home.packages = with pkgs; [
