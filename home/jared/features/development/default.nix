@@ -7,8 +7,7 @@
   imports = [
     ./vscode.nix
     ./lens.nix
-    ./rider.nix
-    ./datagrip.nix
+    ./jetbrains.nix
   ];
 
   home.packages = with pkgs; [
@@ -34,6 +33,7 @@
     helmfile
     go-task
     fluxcd
+    dotnetCorePackages.sdk_8_0_2xx
     # Unstable packages
     unstable.talosctl
     unstable.sops
