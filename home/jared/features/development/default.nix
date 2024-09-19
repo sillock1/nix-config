@@ -1,4 +1,5 @@
 {
+  config,
   inputs,
   pkgs,
   ...
@@ -37,7 +38,12 @@
     # Unstable packages
     unstable.talosctl
     unstable.sops
+    unstable.podman-compose
     # Flake packages
     inputs.talhelper.packages.${system}.default
   ];
+
+  home.file = {
+    "/run/user/1000/podman/podman.sock".source = config.lib.file.mkOutOfStoreSymlink "/run/user/1000/docker.sock";
+  };
 }
