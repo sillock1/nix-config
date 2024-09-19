@@ -6,14 +6,15 @@
 {
   home = {
     packages = with pkgs; [
-      unstable.jetbrains.rider
+      unstable.jetbrains-toolbox
     ];
     persistence = {
       "/persist/home/${config.home.username}" = {
         allowOther = true;
         directories = [
-          ".config/JetBrains/Rider*"
+          ".local/share/JetBrains"
           "RiderProjects"
+          "DataGripProjects"
         ];
       };
     };
