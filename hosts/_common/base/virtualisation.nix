@@ -1,14 +1,29 @@
 {
+  pkgs,
   ...
 }:
 {
   virtualisation = {
+    containers.enable = true;
     podman = {
       enable = true;
       dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    docker = {
+      storageDriver = "btrfs";
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
     };
     libvirtd.enable = true;
   };
+  environment.systemPackages = with pkgs; [
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+  ];
+
   programs.virt-manager.enable = true;
   services = {
     qemuGuest.enable = true;
