@@ -10,8 +10,8 @@
     ./firefox.nix
     ./pavucontrol.nix
     ./playerctl.nix
-    #./rider.nix
     ./youtube-music.nix
+    ./solaar.nix
   ];
   xdg.portal.enable = true;
   home.packages = with pkgs; [
