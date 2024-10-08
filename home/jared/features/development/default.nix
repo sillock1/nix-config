@@ -37,6 +37,7 @@
       go-task
       fluxcd
       docker-compose
+      kind
       # Unstable packages
       unstable.talosctl
       unstable.sops
