@@ -37,11 +37,12 @@
       go-task
       fluxcd
       docker-compose
-      kind
+      crane
       # Unstable packages
       unstable.talosctl
       unstable.sops
       unstable.podman-compose
+      unstable.kind
       # Flake packages
       inputs.talhelper.packages.${system}.default
     ];
