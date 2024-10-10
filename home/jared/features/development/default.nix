@@ -38,6 +38,7 @@
       fluxcd
       docker-compose
       crane
+      postgresql
       # Unstable packages
       unstable.talosctl
       unstable.sops
