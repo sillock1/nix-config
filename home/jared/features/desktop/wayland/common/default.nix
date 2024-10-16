@@ -18,7 +18,6 @@
   home.packages = with pkgs; [
     wf-recorder
     wl-clipboard
-    pulseaudio
   ];
 
   home.sessionVariables = {
