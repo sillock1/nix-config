@@ -33,9 +33,6 @@ in
       fakenews = [
         "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-only/hosts"
       ];
-      gambling = [
-        "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-only/hosts"
-      ];
       facebook = [
         "https://raw.githubusercontent.com/jmdugan/blocklists/master/corporations/facebook/all"
         "https://www.github.developerdan.com/hosts/lists/facebook-extended.txt"
@@ -64,12 +61,10 @@ in
       default = [
         "ads"
         "fakenews"
-        "gambling"
       ];
       "luna.sillock.internal" = [
         "ads"
         "fakenews"
-        "gambling"
         "facebook"
         "twitter"
         "tiktok"
