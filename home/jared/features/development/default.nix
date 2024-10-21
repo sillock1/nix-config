@@ -39,7 +39,7 @@
       docker-compose
       crane
       postgresql
-      ansible
+      unstable.ansible
       # Unstable packages
       unstable.talosctl
       unstable.sops
