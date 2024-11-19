@@ -10,7 +10,6 @@
         xorg.libXcursor
         xorg.libXi
         xorg.libXinerama
-        xorg.libXScrnSaver
         libpng
         libvorbis
         stdenv.cc.cc.lib
