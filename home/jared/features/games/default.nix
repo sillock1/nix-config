@@ -6,6 +6,7 @@
 {
   imports = [
     ./lutris.nix
+    ./openttd.nix
     ./prism-launcher.nix
     ./r2modman.nix
     ./steam.nix
