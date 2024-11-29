@@ -41,7 +41,7 @@
     persistence."/persist/home/${config.home.username}" = {
       allowOther = true;
       directories = [
-        #"Downloads"
+        "Downloads"
         "Documents"
         "Pictures"
         "Videos"
