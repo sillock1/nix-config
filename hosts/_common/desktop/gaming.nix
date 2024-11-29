@@ -24,7 +24,7 @@
     # https://github.com/lutris/docs/
     gnutls
     openldap
-    libgpgerror
+    libgpg-error
     freetype
     sqlite
     libxml2

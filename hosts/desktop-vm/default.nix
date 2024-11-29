@@ -47,7 +47,7 @@
     };
 
     hardware = {
-      opengl.enable = true;
+      graphics.enable = true;
       pulseaudio = {
         enable = true;
         support32Bit = true;
