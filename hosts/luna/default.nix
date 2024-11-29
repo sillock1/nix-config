@@ -25,8 +25,8 @@
       ../_common/desktop/audio.nix
       ../_common/desktop/gaming.nix
       ../_common/desktop/thunar.nix
-      ../_common/desktop/xwayland.nix
       ../_common/desktop/gnome.nix
+      ../_common/desktop/hyprland.nix
     ];
 
     boot = {
@@ -60,14 +60,10 @@
 
     hardware = {
       cpu.amd.updateMicrocode = true;
-      opengl = {
+      amdgpu.opencl.enable = true;
+      graphics = {
         enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
-        extraPackages = with pkgs; [
-          rocm-opencl-icd
-          rocm-opencl-runtime
-        ];
+        enable32Bit = true;
         extraPackages32 = with pkgs; [
           driversi686Linux.amdvlk
         ];

@@ -99,6 +99,6 @@
       };
     };
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   system.stateVersion = "24.05";
 }

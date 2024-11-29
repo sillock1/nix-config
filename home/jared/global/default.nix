@@ -39,10 +39,9 @@
     sessionPath = ["$HOME/.local/bin"];
 
     persistence."/persist/home/${config.home.username}" = {
-      defaultDirectoryMethod = "symlink";
       allowOther = true;
       directories = [
-        "Downloads"
+        #"Downloads"
         "Documents"
         "Pictures"
         "Videos"
