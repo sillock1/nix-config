@@ -40,6 +40,9 @@
       crane
       postgresql
       k9s
+      yq
+      goss
+      dgoss
       # Unstable packages
       unstable.ansible
       unstable.talosctl
