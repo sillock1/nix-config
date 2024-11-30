@@ -1,7 +1,7 @@
 {
   pkgs,
   ...
-}: 
+}:
 {
   services.gpg-agent = {
     enable = true;
@@ -14,4 +14,19 @@
     gnupg
     yubikey-manager
   ];
+
+  programs = {
+    gpg = {
+      enable = true;
+      settings = {
+        trust-model = "tofu+pgp";
+      };
+      publicKeys = [
+        {
+          source = ../../config/gpg/pgp.asc;
+          trust = 5;
+        }
+      ];
+    };
+  };
 }
