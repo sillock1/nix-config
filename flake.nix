@@ -11,8 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #Temporary impermanence module until upstream is updated
-    #impermanence.url = "github:misterio77/impermanence";
     impermanence.url = "github:nix-community/impermanence";
     # Home manager
     home-manager = {
