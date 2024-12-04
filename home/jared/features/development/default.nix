@@ -34,6 +34,8 @@
           ];
         })
       helmfile
+      go
+      minijinja
       go-task
       fluxcd
       docker-compose
