@@ -5,7 +5,7 @@ keys:
   - &desktop-vm age1e5lelu0ezhwx5etzfqk8e5savlp4x9vxm2mj5hfz5l34sf3v94gsgyq224
   - &server-vm age1ntsfvgs6ydtnrhtnm9wpt8vkxtjpls36lw4xugslxw27yt8fsfuq4s0azq
   - &luna age1u7wsy98kx5q28ch7kfq0jsxvq09qjsh9nqs7m360mr35ys8wlsjq76p3h8
-  - &sgr age1axh3yx84lkw40ekftzn9kz7pg5xrut05uu9zzjn2qhjmy6da8qysf4u0pc
+  - &sgr age1up46sm6vxcr2dc3gecjcgxvt95n5glz23nk09a25nl6xzufmyv8s7wsdfl
 
 creation_rules:
   - path_regex: .*\.sops\.ya?ml$
