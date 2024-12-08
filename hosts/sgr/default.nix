@@ -48,27 +48,37 @@
     };
 
     sops = {
-      defaultSopsFile = ./secrets.sops.yaml;
+      defaultSopsFile = ../../secrets.sops.yaml;
       secrets = {
         "networking/bind/rndc-key" = {
           restartUnits = [ "bind.service" ];
           owner = config.users.users.named.name;
+          sopsFile = ./secrets.sops.yaml;
+          format = "yaml";
         };
         "networking/bind/externaldns-key" = {
           restartUnits = [ "bind.service" ];
           owner = config.users.users.named.name;
+          sopsFile = ./secrets.sops.yaml;
+          format = "yaml";
         };
         "networking/bind/zones/pill.ac" = {
           restartUnits = [ "bind.service" ];
           owner = config.users.users.named.name;
+          sopsFile = ./secrets.sops.yaml;
+          format = "yaml";
         };
         "networking/bind/zones/sillock.io" = {
           restartUnits = [ "bind.service" ];
           owner = config.users.users.named.name;
+          sopsFile = ./secrets.sops.yaml;
+          format = "yaml";
         };
         "networking/bind/zones/1.10.in-addr.arpa" = {
           restartUnits = [ "bind.service" ];
           owner = config.users.users.named.name;
+          sopsFile = ./secrets.sops.yaml;
+          format = "yaml";
         };
       };
     };
