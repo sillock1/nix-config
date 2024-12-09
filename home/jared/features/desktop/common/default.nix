@@ -9,6 +9,8 @@
     ./brave.nix
     ./discord.nix
     ./firefox.nix
+    ./jetbrains.nix
+    ./lens.nix
     ./pavucontrol.nix
     ./playerctl.nix
     ./youtube-music.nix

@@ -28,5 +28,8 @@
     ltex-ls # Spell checking LSP
 
     xclip
+
+    envsubst
+    ssh-to-age
   ];
 }

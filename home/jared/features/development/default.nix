@@ -7,8 +7,6 @@
 {
   imports = [
     ./dotnet.nix
-    ./jetbrains.nix
-    ./lens.nix
     ./vscode.nix
   ];
 
@@ -23,8 +21,6 @@
       yamllint
       restic
       kubectl
-      envsubst
-      ssh-to-age
       (wrapHelm kubernetes-helm {
           plugins = with pkgs.kubernetes-helmPlugins; [
             helm-secrets
