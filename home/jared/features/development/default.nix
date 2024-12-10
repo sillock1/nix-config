@@ -41,6 +41,7 @@
       yq
       goss
       dgoss
+      python3Full
       # Unstable packages
       unstable.ansible
       unstable.talosctl
