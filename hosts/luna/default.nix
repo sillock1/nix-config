@@ -22,6 +22,7 @@
       # Optional config
       ../_common/base/virtualisation.nix
       ../_common/cli/greetd.nix
+      ../_common/desktop/1password.nix
       ../_common/desktop/audio.nix
       ../_common/desktop/gaming.nix
       ../_common/desktop/thunar.nix
