@@ -18,6 +18,7 @@
   xdg.portal.enable = true;
   home.packages = with pkgs; [
     pinentry-gtk2
+    pinta
   ];
   services.gpg-agent.pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
 }
