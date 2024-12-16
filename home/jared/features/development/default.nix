@@ -38,6 +38,7 @@
       crane
       postgresql
       k9s
+      stern
       yq
       goss
       dgoss
