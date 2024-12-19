@@ -43,6 +43,7 @@
       goss
       dgoss
       python3Full
+      golangci-lint
       # Unstable packages
       unstable.ansible
       unstable.talosctl
