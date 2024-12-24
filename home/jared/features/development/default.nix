@@ -50,6 +50,7 @@
       unstable.sops
       unstable.podman-compose
       unstable.kind
+      unstable.mise
       # Flake packages
       inputs.talhelper.packages.${system}.default
     ];
