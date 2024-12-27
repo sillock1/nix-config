@@ -45,7 +45,7 @@
       python3Full
       golangci-lint
       # Unstable packages
-      unstable.ansible
+      #unstable.ansible
       unstable.talosctl
       unstable.sops
       unstable.podman-compose
