@@ -5,15 +5,16 @@
 }:
 {
   imports = [
-    ./brave.nix
+    ./brave.nix # Chromium browser for when DRM fucks my firefox
     ./discord.nix
     ./firefox.nix
     ./jetbrains.nix
     ./lens.nix
+    ./okular.nix # PDF viewer
     ./pavucontrol.nix
     ./playerctl.nix
     ./youtube-music.nix
-    ./solaar.nix
+    ./solaar.nix # Logitech controls
   ];
   xdg.portal.enable = true;
   home.packages = with pkgs; [
