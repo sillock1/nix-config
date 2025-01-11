@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  modulesPath,
   inputs,
   ...
 }:
@@ -21,15 +20,17 @@
       ../_common/users/jared
 
       # Optional config
+      ../_common/base/virtualisation.nix
       ../_common/cli/greetd.nix
+      ../_common/desktop/1password.nix
+      ../_common/desktop/audio.nix
       ../_common/desktop/gaming.nix
       ../_common/desktop/thunar.nix
+      ../_common/desktop/gnome.nix
+      ../_common/desktop/hyprland.nix
     ];
 
     boot = {
-      # kernel.sysctl = {
-      #   "vm.swappiness" = 100;
-      # };
       loader = {
         systemd-boot.enable = true;
         efi.canTouchEfiVariables = true;
@@ -61,18 +62,6 @@
         support32Bit = true;
       };
     };
-
-  environment.variables.NIX_REMOTE = "daemon";
-  systemd.services.nix-daemon = {
-    environment = {
-      # Location for temporary files
-      TMPDIR = "/var/cache/nix";
-    };
-    serviceConfig = {
-      # Create /var/cache/nix automatically on Nix Daemon start
-      CacheDirectory = "nix";
-    };
-  };
 
   system.stateVersion = "24.05";
 }
