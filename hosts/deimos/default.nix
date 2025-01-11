@@ -57,10 +57,6 @@
 
     hardware = {
       graphics.enable = true;
-      pulseaudio = {
-        enable = true;
-        support32Bit = true;
-      };
     };
 
   system.stateVersion = "24.05";
