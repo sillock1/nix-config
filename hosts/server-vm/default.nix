@@ -62,7 +62,7 @@
           restartUnits = [ "bind.service" ];
           owner = config.users.users.named.name;
         };
-        "networking/bind/zones/sillock.io" = {
+        "networking/bind/zones/sillock.com" = {
           restartUnits = [ "bind.service" ];
           owner = config.users.users.named.name;
         };

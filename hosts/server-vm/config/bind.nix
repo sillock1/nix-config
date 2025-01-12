@@ -56,10 +56,10 @@ zone "pill.ac." {
   };
 };
 
-zone "sillock.io." {
+zone "sillock.com." {
   type master;
-  file "${config.sops.secrets."networking/bind/zones/sillock.io".path}";
-  journal "${config.services.bind.directory}/db.sillock.io.jnl";
+  file "${config.sops.secrets."networking/bind/zones/sillock.com".path}";
+  journal "${config.services.bind.directory}/db.sillock.com.jnl";
   allow-transfer {
     key "externaldns";
   };
