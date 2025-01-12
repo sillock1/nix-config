@@ -13,7 +13,7 @@
         host = builtins.concatStringsSep " " ([
             "sillock.internal"
             "*.sillock.internal"
-            "*.sillock.io"
+            "*.sillock.com"
             "*.sillock.cloud"
           ]
           ++ [hostname]);
