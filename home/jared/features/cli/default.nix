@@ -24,6 +24,8 @@
     nix-output-monitor
     nh # Nice wrapper for NixOS and HM
 
+    unstable.uv
+
     ltex-ls # Spell checking LSP
 
     xclip
