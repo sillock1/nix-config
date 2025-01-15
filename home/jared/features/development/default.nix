@@ -6,7 +6,6 @@
 }:
 {
   imports = [
-    ./dotnet.nix
     ./vscode.nix
   ];
 
