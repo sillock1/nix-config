@@ -45,6 +45,7 @@
       golangci-lint
       # Unstable packages
       #unstable.ansible
+      unstable.kustomize
       unstable.talosctl
       unstable.sops
       unstable.podman-compose
