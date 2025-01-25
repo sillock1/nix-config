@@ -38,13 +38,12 @@
       postgresql
       k9s
       stern
-      yq
       goss
       dgoss
       python3Full
       golangci-lint
       # Unstable packages
-      #unstable.ansible
+      unstable.yq-go
       unstable.kustomize
       unstable.talosctl
       unstable.sops
