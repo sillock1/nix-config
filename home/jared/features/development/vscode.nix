@@ -11,6 +11,7 @@
       jnoortheen.nix-ide
       rust-lang.rust-analyzer
       arrterian.nix-env-selector
+      redhat.vscode-yaml
     ];
   };
 }
