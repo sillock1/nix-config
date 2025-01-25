@@ -9,6 +9,7 @@
       unstable.jetbrains.rider
       unstable.jetbrains.datagrip
       unstable.jetbrains.idea-ultimate
+      unstatable.jetbrains.pycharm-professional
     ];
     persistence = {
       "/persist/home/${config.home.username}" = {
