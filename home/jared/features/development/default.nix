@@ -43,6 +43,7 @@
       python3Full
       golangci-lint
       # Unstable packages
+      unstable.chart-testing # Helm chart testing
       unstable.yq-go
       unstable.kustomize
       unstable.talosctl
@@ -60,7 +61,10 @@
     };
     #virt-manager persistence
     persistence."/persist/home/${config.home.username}" = {
-      directories = [".config/dconf"];
+      directories = [
+        ".config/dconf"
+        ".config/containers"
+      ];
     };
   };
 }
