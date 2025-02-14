@@ -10,13 +10,6 @@
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
-    docker = {
-      storageDriver = "btrfs";
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
     libvirtd.enable = true;
   };
   environment.systemPackages = with pkgs; [

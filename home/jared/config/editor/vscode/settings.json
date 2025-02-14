@@ -135,5 +135,6 @@
       "helm": true
     },
     "extensions.autoCheckUpdates": false,
-    "extensions.autoUpdate": false
+    "extensions.autoUpdate": false,
+    "dev.containers.dockerComposePath": "podman-compose"
   }
