@@ -33,7 +33,6 @@
       minijinja
       go-task
       fluxcd
-      docker-compose
       crane
       postgresql
       k9s
@@ -56,9 +55,6 @@
       inputs.talhelper.packages.${system}.default
     ];
 
-    file = {
-      "/run/user/1000/podman/podman.sock".source = config.lib.file.mkOutOfStoreSymlink "/run/user/1000/docker.sock";
-    };
     #virt-manager persistence
     persistence."/persist/home/${config.home.username}" = {
       directories = [
