@@ -51,6 +51,7 @@
       unstable.kind
       unstable.mise
       unstable.uv
+      unstable.cilium-cli
       # Flake packages
       inputs.talhelper.packages.${system}.default
     ];
