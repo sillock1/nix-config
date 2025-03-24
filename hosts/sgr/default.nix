@@ -10,6 +10,7 @@
   imports =
     [
       inputs.disko.nixosModules.disko
+      inputs.impermanence.nixosModules.impermanence
       ./disko-config.nix
 
       (modulesPath + "/profiles/qemu-guest.nix")
@@ -94,6 +95,7 @@
         };
       };
     };
+  environment.persistence = lib.mkForce {};
 
   hardware.graphics.enable = true;
   system.stateVersion = "24.05";

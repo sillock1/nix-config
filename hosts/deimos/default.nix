@@ -21,6 +21,7 @@
 
       # Optional config
       ../_common/base/virtualisation.nix
+      ../_common/base/impermanence.nix
       ../_common/cli/greetd.nix
       ../_common/desktop/1password.nix
       ../_common/desktop/audio.nix

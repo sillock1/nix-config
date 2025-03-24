@@ -3,7 +3,6 @@
 }:
 {
   imports = [
-    ./impermanence.nix
     ./locale.nix
     ./nix-ld.nix
     ./nix.nix
