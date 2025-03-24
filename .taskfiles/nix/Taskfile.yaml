@@ -2,6 +2,27 @@
 version: "3"
 
 tasks:
+  bootstrap-remote:
+    desc: Run nix install via nix anywhere
+    requires:
+      vars:
+        - HOSTNAME
+        - IP
+    vars:
+      AGEKEY:
+        sh: ssh-keyscan {{.IP}} | grep "{{.IP}} ssh-ed25519" | awk '{print $2 " " $3}' | ssh-to-age
+      SECRET_FILES:
+        sh: find . -type f -name '*.sops.yaml' ! -name ".sops.yaml"
+    cmds:
+      - yq 'del(.keys[] | select(anchor=="{{.HOSTNAME}}")) | del(.creation_rules[0].key_groups[0].age[] | select(alias=="{{.HOSTNAME}}"))' -i .sops.yaml
+      - yq '.keys += "{{.AGEKEY}}" | .creation_rules[0].key_groups[0].age += "{{.HOSTNAME}}" | .keys[-1] anchor = .creation_rules[0].key_groups[0].age[-1] | .creation_rules[0].key_groups[0].age[-1] alias |= .' -i .sops.yaml
+      - for: {var: SECRET_FILES}
+        cmd: |
+          sops --decrypt --in-place "{{ .ITEM }}"
+          sops --encrypt --in-place "{{ .ITEM }}"
+      - git add .
+      - nix run github:nix-community/nixos-anywhere -- --flake .#{{.HOSTNAME}} --target-host nixos@{{.IP}}}} --copy-host-keys
+
   apply-local:
     desc: Build and apply nix configuration to a local machine
     silent: true
