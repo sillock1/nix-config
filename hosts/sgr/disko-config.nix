@@ -32,39 +32,14 @@
             };
           };
           root = {
-            size = "100%";
+              size = "100%";
               content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ];
-                subvolumes = {
-                  "/nix" = {
-                    mountOptions = [
-                      "compress=zstd"
-                      "noatime"
-                    ];
-                    mountpoint = "/nix";
-                  };
-                  "/persist/system" = {
-                    mountOptions = [ "compress=zstd" ];
-                    mountpoint = "/persist/system";
-                  };
-                  "/persist/home" = {
-                    mountOptions = [ "compress=zstd" ];
-                    mountpoint = "/persist/home";
-                  };
-                };
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/";
               };
           };
         };
-      };
-    };
-    nodev = {
-      "/" = {
-        fsType = "tmpfs";
-        mountOptions = [
-          "mode=755"
-          "size=1G"
-        ];
       };
     };
   };
