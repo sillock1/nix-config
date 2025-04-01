@@ -47,7 +47,6 @@
       unstable.kustomize
       unstable.talosctl
       unstable.sops
-      unstable.podman-compose
       unstable.kind
       unstable.mise
       unstable.uv

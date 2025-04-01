@@ -137,7 +137,6 @@
     "extensions.autoCheckUpdates": false,
     "extensions.autoUpdate": false,
     "dev.containers": {
-      "dockerComposePath": "podman-compose",
-      "dockerPath": "podman"
+      "dockerPath": "docker"
     }
   }
