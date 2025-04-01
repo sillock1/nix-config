@@ -5,10 +5,8 @@
 {
   virtualisation = {
     containers.enable = true;
-    docker.storageDriver = "btrfs";
-    docker.rootless = {
+    docker = {
       enable = true;
-      setSocketVariable = true;
     };
     libvirtd.enable = true;
   };
