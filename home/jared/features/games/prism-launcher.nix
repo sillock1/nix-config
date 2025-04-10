@@ -1,12 +1,15 @@
 {
   pkgs,
-  lib,
   config,
   ...
 }: {
-  home.packages = [pkgs.prismlauncher];
+  home = {
+    packages = with pkgs; [
+      unstable.prismlauncher
+    ];
 
-  home.persistence = {
-    "/persist/home/${config.home.username}".directories = [".local/share/PrismLauncher"];
+    persistence = {
+      "/persist/home/${config.home.username}".directories = [".local/share/PrismLauncher"];
+    };
   };
 }
