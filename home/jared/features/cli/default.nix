@@ -34,5 +34,7 @@
     ssh-to-age
     smartmontools # smartctl
     hdparm # Drive info
+
+    nmap
   ];
 }
