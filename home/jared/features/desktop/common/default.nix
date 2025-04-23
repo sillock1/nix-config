@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     pinentry-gtk2
     pinta
+    unstable.teamspeak6-client
   ];
   services.gpg-agent.pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
 }
