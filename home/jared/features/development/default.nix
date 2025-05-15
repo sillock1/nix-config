@@ -42,6 +42,7 @@
       python3Full
       golangci-lint
       # Unstable packages
+      unstable.opentofu
       unstable.chart-testing # Helm chart testing
       unstable.yq-go
       unstable.kustomize
