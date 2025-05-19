@@ -12,11 +12,11 @@ in {
     aliases = {
       p = "pull --ff-only";
     };
-    userName = "jared";
-    userEmail = lib.mkDefault "git@sillock.io";
+    userName = "sillock";
+    userEmail = lib.mkDefault "mail@sillock.com";
     extraConfig = {
       init.defaultBranch = "main";
-      user.signing.key = "AD6F1BCEC838856376CC8E9F5310B12364E59685!";
+      user.signing.key = "5922765DA44FED87F98EE2FBA4572BEA3D629397!";
       commit.gpgSign = lib.mkDefault true;
       gpg.program = "gpg2";
 
