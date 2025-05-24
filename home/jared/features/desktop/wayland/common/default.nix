@@ -4,6 +4,7 @@
 }:
 {
   imports = [
+    ./cosmic.nix
     ./fuzzel.nix
     ./hypridle.nix
     ./hyprlock.nix
