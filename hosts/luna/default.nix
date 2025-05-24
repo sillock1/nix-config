@@ -29,6 +29,7 @@
       ../_common/desktop/thunar.nix
       ../_common/desktop/gnome.nix
       ../_common/desktop/hyprland.nix
+      ../_common/desktop/cosmic.nix
     ];
 
     boot = {
