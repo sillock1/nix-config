@@ -22,5 +22,5 @@
     pinta
     unstable.teamspeak6-client
   ];
-  services.gpg-agent.pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
+  services.gpg-agent.pinentry.package = lib.mkForce pkgs.pinentry-gtk2;
 }
