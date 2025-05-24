@@ -24,6 +24,6 @@ in
   };
 
   home.persistence."/persist/home/${config.home.username}" = {
-    directories = [".local/share/fish/fish_history"];
-  }; 
+    directories = [".local/share/fish"];
+  };
 }
