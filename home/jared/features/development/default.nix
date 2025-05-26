@@ -41,6 +41,7 @@
       dgoss
       python3Full
       golangci-lint
+      ansible
       # Unstable packages
       unstable.opentofu
       unstable.chart-testing # Helm chart testing
