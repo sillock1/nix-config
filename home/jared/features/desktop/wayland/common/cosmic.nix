@@ -24,6 +24,8 @@
         allowOther = true;
         directories = [
           ".config/cosmic"
+          ".local/state/cosmic"
+          ".local/state/cosmic-comp"
         ];
       };
     };
