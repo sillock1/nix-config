@@ -42,6 +42,7 @@
       python3Full
       golangci-lint
       ansible
+      molecule
       # Unstable packages
       unstable.opentofu
       unstable.chart-testing # Helm chart testing
