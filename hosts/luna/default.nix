@@ -59,18 +59,10 @@
       useDHCP = lib.mkDefault true;
     };
 
-    services.xserver.videoDrivers = [ "amdgpu" ];
 
-    hardware = {
-      cpu.amd.updateMicrocode = true;
-      amdgpu.opencl.enable = true;
-      graphics = {
-        enable = true;
-        enable32Bit = true;
-        extraPackages32 = with pkgs; [
-          driversi686Linux.amdvlk
-        ];
-      };
+    hardware.graphics = {
+      package = pkgs.unstable.mesa;
+      package32 = pkgs.unstable.pkgsi686Linux.mesa;
     };
 
   system.stateVersion = "24.05";
