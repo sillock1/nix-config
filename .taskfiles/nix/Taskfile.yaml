@@ -93,7 +93,7 @@ tasks:
       vars:
         - host
     cmds:
-      - nix-shell -p nixos-rebuild --run 'nixos-rebuild switch --flake .#{{.host}} --fast --use-remote-sudo --build-host "{{.ssh_user}}@{{.host}}.pill.ac" --target-host "{{.ssh_user}}@{{.host}}.pill.ac"'
+      - nix-shell -p nixos-rebuild --run 'nixos-rebuild switch --flake .#{{.host}} --fast --use-remote-sudo --target-host "{{.ssh_user}}@{{.host}}.pill.ac"'
     preconditions:
       - sh: which nix
         msg: "nix not found"
