@@ -9,8 +9,10 @@
     gamescopeSession.enable = true;
   };
 
-  hardware.xone.enable = true;
+  #hardware.xone.enable = true; # TODO: Fix when upstream is updated
   environment.systemPackages = with pkgs; [
+    # Xone
+    linuxKernel.packages.linux_zen.xone
     # Steam
     mangohud
 
