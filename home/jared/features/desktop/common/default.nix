@@ -14,7 +14,7 @@
     ./pavucontrol.nix
     ./playerctl.nix
     ./youtube-music.nix
-    ./solaar.nix # Logitech controls
+    ./piper.nix # Logitech controls
   ];
   xdg.portal.enable = true;
   home.packages = with pkgs; [

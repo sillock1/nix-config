@@ -9,6 +9,7 @@
     gamescopeSession.enable = true;
   };
 
+  services.ratbagd.enable = true; # Logitech mouse software
   #hardware.xone.enable = true; # TODO: Fix when upstream is updated
   environment.systemPackages = with pkgs; [
     # Xone
