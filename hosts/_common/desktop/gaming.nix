@@ -10,7 +10,7 @@
   };
 
   services.ratbagd.enable = true; # Logitech mouse software
-  hardware.xone.enable = true; # TODO: Fix when upstream is updated
+  hardware.xone.enable = true;
   environment.systemPackages = with pkgs; [
     # Xone
     linuxKernel.packages.linux_zen.xone
