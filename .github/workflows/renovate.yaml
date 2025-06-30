@@ -52,7 +52,7 @@ jobs:
           token: "${{ steps.app-token.outputs.token }}"
 
       - name: Run Renovate
-        uses: renovatebot/github-action@19e3d87179488d6a0cd9da744d37123ea4b338e5 # v41.0.20
+        uses: renovatebot/github-action@13da59cf7cfbd3bfea72ce26752ed22edf747ce9 # v43.0.2
         env:
           LOG_LEVEL: "${{ inputs.logLevel || 'debug' }}"
           RENOVATE_AUTODISCOVER: true
