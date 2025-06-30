@@ -45,6 +45,7 @@
       python312Packages.molecule
       python312Packages.molecule-plugins
       python312Packages.docker
+      devenv
       # Unstable packages
       unstable.opentofu
       unstable.chart-testing # Helm chart testing
