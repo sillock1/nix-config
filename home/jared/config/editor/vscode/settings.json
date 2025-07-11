@@ -138,5 +138,6 @@
     "extensions.autoUpdate": false,
     "dev.containers": {
       "dockerPath": "docker"
-    }
+    },
+    "dotnet.testWindow.useTestingPlatformProtocol": true
   }
