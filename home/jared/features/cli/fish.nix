@@ -21,6 +21,7 @@ in
 
       vim = mkIf hasNeovim "nvim";
     };
+    interactiveShellInit = "mise activate fish | source";
   };
 
   home.persistence."/persist/home/${config.home.username}" = {
