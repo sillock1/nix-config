@@ -7,6 +7,9 @@
     containers.enable = true;
     docker = {
       enable = true;
+      daemon.settings = {
+        data-root = "/bigfiles/docker-data";
+      };
     };
     libvirtd.enable = true;
   };
