@@ -23,6 +23,7 @@ in {
       "video"
       "wheel"
       "wireshark"
+      "networkmanager"
     ];
 
     openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/jared/config/ssh/ssh.pub);
