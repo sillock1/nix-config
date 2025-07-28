@@ -8,5 +8,6 @@
     git
     dig
     lsof
+    nfs-utils
   ];
 }
