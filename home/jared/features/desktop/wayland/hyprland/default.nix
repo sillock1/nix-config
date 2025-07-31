@@ -49,6 +49,7 @@ in
         grimblast
         hyprpicker
         xorg.xrandr
+        hyprland-qtutils
       ];
       wayland.windowManager.hyprland = {
         enable = true;
