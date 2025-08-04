@@ -9,6 +9,9 @@
       enable = true;
       daemon.settings = {
         data-root = "/bigfiles/docker-data";
+        features = {
+          containerd-snapshotter = true; # enable containerd snapshotter
+        };
       };
     };
     libvirtd.enable = true;
