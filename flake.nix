@@ -30,11 +30,6 @@
     };
 
     nix-inspect.url = "github:bluskript/nix-inspect";
-
-    talhelper = {
-      url = "github:budimanjojo/talhelper";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
   };
 
   outputs = {
