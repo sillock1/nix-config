@@ -20,7 +20,7 @@
   home.packages = with pkgs; [
     pinentry-gtk2
     pinta
-    unstable.teamspeak6-client
+    teamspeak6-client
     protonvpn-gui
   ];
   services.gpg-agent.pinentry.package = lib.mkForce pkgs.pinentry-gtk2;

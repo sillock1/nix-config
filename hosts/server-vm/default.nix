@@ -85,7 +85,7 @@
         };
         blocky = {
           enable = true;
-          package = pkgs.unstable.blocky;
+          package = pkgs.blocky;
           config = import ./config/blocky.nix;
         };
         matchbox = {

@@ -28,9 +28,8 @@
       python312Packages.molecule
       python312Packages.molecule-plugins
       python312Packages.docker
-      # Unstable packages
-      unstable.mise
-      unstable.uv
+      mise
+      uv
     ];
 
     #virt-manager persistence

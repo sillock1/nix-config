@@ -5,7 +5,7 @@
 }: {
   home = {
     packages = with pkgs; [
-      unstable.prismlauncher
+      prismlauncher
     ];
 
     persistence = {

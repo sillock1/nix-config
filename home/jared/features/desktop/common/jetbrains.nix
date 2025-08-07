@@ -6,10 +6,10 @@
 {
   home = {
     packages = with pkgs; [
-      unstable.jetbrains.rider
-      unstable.jetbrains.datagrip
-      unstable.jetbrains.idea-ultimate
-      unstable.jetbrains.pycharm-professional
+      jetbrains.rider
+      jetbrains.datagrip
+      jetbrains.idea-ultimate
+      jetbrains.pycharm-professional
     ];
     persistence = {
       "/persist/home/${config.home.username}" = {

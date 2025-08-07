@@ -61,8 +61,8 @@
 
 
     hardware.graphics = {
-      package = pkgs.unstable.mesa;
-      package32 = pkgs.unstable.pkgsi686Linux.mesa;
+      package = pkgs.mesa;
+      package32 = pkgs.pkgsi686Linux.mesa;
     };
 
   system.stateVersion = "24.05";
