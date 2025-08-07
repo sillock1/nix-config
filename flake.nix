@@ -20,46 +20,49 @@
     nix-inspect.url = "github:bluskript/nix-inspect";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-stable,
-    ...
-  } @inputs:
-  let
-    supportedSystems = ["x86_64-linux" "aarch64-darwin"];
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-    overlays = import ./overlays {inherit inputs;};
-    mkSystemLib = import ./lib/mkSystem.nix {inherit inputs overlays;};
-    flake-packages = self.packages;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      ...
+    }@inputs:
+    let
+      supportedSystems = [
+        "x86_64-linux"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      overlays = import ./overlays { inherit inputs; };
+      mkSystemLib = import ./lib/mkSystem.nix { inherit inputs overlays; };
+      flake-packages = self.packages;
 
-    legacyPackages = forAllSystems (
-      system:
+      legacyPackages = forAllSystems (
+        system:
         import nixpkgs {
           inherit system;
           overlays = builtins.attrValues overlays;
           config.allowUnfree = true;
         }
-    );
+      );
     in
     {
       inherit overlays;
 
       packages = forAllSystems (
-        system: let
+        system:
+        let
           pkgs = legacyPackages.${system};
         in
-          import ./pkgs {
-            inherit pkgs;
-            inherit inputs;
-          }
+        import ./pkgs {
+          inherit pkgs;
+          inherit inputs;
+        }
       );
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
       nixosConfigurations = {
         luna = mkSystemLib.mkNixosSystem "x86_64-linux" "luna" flake-packages;
         deimos = mkSystemLib.mkNixosSystem "x86_64-linux" "deimos" flake-packages;
         sgr = mkSystemLib.mkNixosSystem "x86_64-linux" "sgr" flake-packages;
-        desktop-vm = mkSystemLib.mkNixosSystem "x86_64-linux" "desktop-vm" flake-packages;
-        server-vm = mkSystemLib.mkNixosSystem "x86_64-linux" "server-vm" flake-packages;
       };
-  };
+    };
 }

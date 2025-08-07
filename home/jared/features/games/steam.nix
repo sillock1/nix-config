@@ -3,10 +3,11 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   steam-with-pkgs = pkgs.steam.override {
-    extraPkgs = pkgs:
-      with pkgs; [
+    extraPkgs =
+      pkgs: with pkgs; [
         xorg.libXcursor
         xorg.libXi
         xorg.libXinerama
@@ -20,7 +21,8 @@
       ];
   };
 
-in {
+in
+{
   home.packages = [
     steam-with-pkgs
     pkgs.gamescope

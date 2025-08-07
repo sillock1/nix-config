@@ -6,11 +6,9 @@
 }:
 {
   home.packages = [
-    (
-      pkgs.writeShellScriptBin "xterm" ''
-        ${lib.getExe config.programs.kitty.package} "$@"
-      ''
-    )
+    (pkgs.writeShellScriptBin "xterm" ''
+      ${lib.getExe config.programs.kitty.package} "$@"
+    '')
   ];
   xdg.mimeApps = {
     associations.added = {

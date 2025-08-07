@@ -4,7 +4,8 @@
   ...
 }:
 {
-  mkNixosSystem = system: hostname: flake-packages:
+  mkNixosSystem =
+    system: hostname: flake-packages:
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       pkgs = import inputs.nixpkgs {

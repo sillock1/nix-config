@@ -4,7 +4,7 @@
   ...
 }:
 {
-  home.packages = with pkgs; [pavucontrol];
+  home.packages = with pkgs; [ pavucontrol ];
 
   home.persistence."/persist/home/${config.home.username}" = {
     files = [

@@ -4,15 +4,15 @@
   ...
 }:
 {
-    services.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --time --remember --remember-session --cmd Hyprland";
-          user = "greeter";
-        };
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions --time --remember --remember-session --cmd Hyprland";
+        user = "greeter";
       };
     };
+  };
 
   # this is a life saver.
   # literally no documentation about this anywhere.

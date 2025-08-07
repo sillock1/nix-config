@@ -3,7 +3,7 @@
   ...
 }:
 {
-  environment.shells = with pkgs; [fish];
+  environment.shells = with pkgs; [ fish ];
 
   programs = {
     fish = {

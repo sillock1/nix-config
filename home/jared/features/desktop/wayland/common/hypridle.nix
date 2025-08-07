@@ -3,7 +3,7 @@
   lib,
   config,
   ...
-}: 
+}:
 {
   services.hypridle = {
     enable = true;

@@ -3,9 +3,11 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-in {
+in
+{
   users.mutableUsers = false;
   users.users.jared = {
     isNormalUser = true;
@@ -26,9 +28,11 @@ in {
       "networkmanager"
     ];
 
-    openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/jared/config/ssh/ssh.pub);
+    openssh.authorizedKeys.keys = lib.splitString "\n" (
+      builtins.readFile ../../../../home/jared/config/ssh/ssh.pub
+    );
     hashedPasswordFile = config.sops.secrets."users/jared/password".path;
-    packages = [pkgs.home-manager];
+    packages = [ pkgs.home-manager ];
   };
 
   sops.secrets."users/jared/password" = {
@@ -40,7 +44,7 @@ in {
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services = {
-    hyprlock = {};
+    hyprlock = { };
     gdm.enableGnomeKeyring = true;
   };
 }

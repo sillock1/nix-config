@@ -4,6 +4,6 @@
 }:
 {
   home.persistence."/persist/home/${config.home.username}" = {
-    directories = [".local/state/wireplumber"];
+    directories = [ ".local/state/wireplumber" ];
   };
 }

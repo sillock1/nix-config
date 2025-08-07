@@ -5,7 +5,7 @@
   ...
 }:
 {
-  imports = [inputs.impermanence.nixosModules.impermanence];
+  imports = [ inputs.impermanence.nixosModules.impermanence ];
   environment = {
     persistence = {
       "/persist/system" = {
@@ -30,8 +30,10 @@
     };
   };
   programs.fuse.userAllowOther = true;
-  system.activationScripts.persistent-dirs.text = let
-      mkHomePersist = user:
+  system.activationScripts.persistent-dirs.text =
+    let
+      mkHomePersist =
+        user:
         lib.optionalString user.createHome ''
           mkdir -p /persist/${user.home}
           chown ${user.name}:${user.group} /persist/${user.home}
@@ -39,5 +41,5 @@
         '';
       users = lib.attrValues config.users.users;
     in
-      lib.concatLines (map mkHomePersist users);
+    lib.concatLines (map mkHomePersist users);
 }

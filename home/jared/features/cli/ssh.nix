@@ -10,13 +10,15 @@
     enable = true;
     matchBlocks = {
       net = {
-        host = builtins.concatStringsSep " " ([
+        host = builtins.concatStringsSep " " (
+          [
             "sillock.internal"
             "*.sillock.internal"
             "*.sillock.com"
             "*.sillock.cloud"
           ]
-          ++ [hostname]);
+          ++ [ hostname ]
+        );
         forwardAgent = true;
 
         setEnv.WAYLAND_DISPLAY = "wayland-waypipe";

@@ -8,7 +8,7 @@
     enableSshSupport = true;
     enableExtraSocket = true;
     pinentry.package = pkgs.pinentry-tty;
-    sshKeys = ["426EB695ECC57AA2B5828135EDEB772D70EA4FE9"];
+    sshKeys = [ "426EB695ECC57AA2B5828135EDEB772D70EA4FE9" ];
   };
   home.packages = with pkgs; [
     gnupg

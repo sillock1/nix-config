@@ -20,6 +20,9 @@ in
   config = lib.mkIf cfg.enable {
     services.haproxy.enable = true;
     services.haproxy.config = cfg.config;
-    networking.firewall.allowedTCPPorts = [ k8sApiPort haProxyStatsPort ];
+    networking.firewall.allowedTCPPorts = [
+      k8sApiPort
+      haProxyStatsPort
+    ];
   };
 }

@@ -11,23 +11,25 @@ in
   options.modules.desktop.hyprland = {
     enable = lib.mkEnableOption "hyprland";
     settings = lib.mkOption {
-      type = with lib.types; let
-        valueType =
-          nullOr (oneOf [
-            bool
-            int
-            float
-            str
-            path
-            (attrsOf valueType)
-            (listOf valueType)
-          ])
-          // {
-            description = "Hyprland configuration value";
-          };
-      in
+      type =
+        with lib.types;
+        let
+          valueType =
+            nullOr (oneOf [
+              bool
+              int
+              float
+              str
+              path
+              (attrsOf valueType)
+              (listOf valueType)
+            ])
+            // {
+              description = "Hyprland configuration value";
+            };
+        in
         valueType;
-      default = {};
+      default = { };
     };
   };
   imports = [
@@ -37,13 +39,15 @@ in
 
   config = lib.mkMerge [
     ({
-      xdg.portal = let
-        hyprland = config.wayland.windowManager.hyprland.package;
-        xdph = pkgs.xdg-desktop-portal-hyprland.override {inherit hyprland;};
-      in {
-        extraPortals = [xdph];
-        configPackages = [hyprland];
-      };
+      xdg.portal =
+        let
+          hyprland = config.wayland.windowManager.hyprland.package;
+          xdph = pkgs.xdg-desktop-portal-hyprland.override { inherit hyprland; };
+        in
+        {
+          extraPortals = [ xdph ];
+          configPackages = [ hyprland ];
+        };
 
       home.packages = with pkgs; [
         grimblast
@@ -53,7 +57,7 @@ in
       ];
       wayland.windowManager.hyprland = {
         enable = true;
-        package = pkgs.hyprland.override {wrapRuntimeDeps = false;};
+        package = pkgs.hyprland.override { wrapRuntimeDeps = false; };
         systemd = {
           enable = true;
           # Same as default, but stop graphical-session too
@@ -78,13 +82,13 @@ in
           ];
         };
         extraConfig = builtins.readFile ../../../../config/hyprland/hyprland.conf;
-        };
+      };
     })
     (lib.mkIf cfg.enable {
       wayland.windowManager.hyprland = {
         settings = cfg.settings;
       };
     })
-   ];
+  ];
 
 }

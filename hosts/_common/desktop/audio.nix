@@ -3,7 +3,7 @@
 }:
 {
   services.pulseaudio = {
-     enable = false;
+    enable = false;
   };
 
   security.rtkit.enable = true;

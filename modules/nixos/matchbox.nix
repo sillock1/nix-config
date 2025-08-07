@@ -22,17 +22,17 @@ in
 
   config = lib.mkIf cfg.enable {
     system.activationScripts.makeMatchboxDataDirs = lib.stringAfter [ "var" ] ''
-        mkdir -p "/etc/matchbox"
-        mkdir -p "${cfg.dataDir}/assets"
-        mkdir -p "${cfg.dataDir}/groups"
-        mkdir -p "${cfg.dataDir}/profiles"
-        chown -R 999:999 ${cfg.dataDir}
-      '';
+      mkdir -p "/etc/matchbox"
+      mkdir -p "${cfg.dataDir}/assets"
+      mkdir -p "${cfg.dataDir}/groups"
+      mkdir -p "${cfg.dataDir}/profiles"
+      chown -R 999:999 ${cfg.dataDir}
+    '';
     virtualisation.oci-containers.containers = {
       matchbox = {
         image = "quay.io/poseidon/matchbox:${cfg.apiVersion}";
         autoStart = true;
-        extraOptions = [];
+        extraOptions = [ ];
         ports = [
           "8080:8080"
         ];

@@ -15,7 +15,7 @@ in
     package = lib.mkPackageOption pkgs "blocky" { };
     config = lib.mkOption {
       inherit (yamlFormat) type;
-      default = {};
+      default = { };
     };
   };
 
