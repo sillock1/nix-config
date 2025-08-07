@@ -6,5 +6,11 @@
   dependencyDashboard: true,
   nix: {
     enabled: true
+  },
+  lockFileMaintenance: {
+    enabled: true,
+    recreateWhen: "always",
+    rebaseStalePrs: true,
+    commitMessageAction: "Lock file maintenance"
   }
 }
