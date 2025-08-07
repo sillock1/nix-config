@@ -3,10 +3,8 @@
   extends: [
     'config:recommended',
   ],
+  dependencyDashboard: true,
   nix: {
-    enabled: true,
-  },
-  lockFileMaintenance: {
-    enabled: true,
-  },
+    enabled: true
+  }
 }
