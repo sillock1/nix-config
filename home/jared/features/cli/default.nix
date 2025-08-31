@@ -37,5 +37,7 @@
     hdparm # Drive info
 
     nmap
+
+    btop-rocm
   ];
 }
