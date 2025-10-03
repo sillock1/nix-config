@@ -1,26 +1,14 @@
 {
-  outputs,
-  lib,
   config,
-  hostname,
   ...
 }:
 {
   programs.ssh = {
     enable = true;
     matchBlocks = {
-      net = {
-        host = builtins.concatStringsSep " " (
-          [
-            "sillock.internal"
-            "*.sillock.internal"
-            "*.sillock.com"
-            "*.sillock.cloud"
-          ]
-          ++ [ hostname ]
-        );
+      "*" = {
         forwardAgent = true;
-
+        identityAgent = "~/.1password/agent.sock";
         setEnv.WAYLAND_DISPLAY = "wayland-waypipe";
         extraOptions.StreamLocalBindUnlink = "yes";
       };

@@ -5,6 +5,7 @@
 }:
 {
   imports = [
+    ./1password.nix
     ./brave.nix # Chromium browser for when DRM fucks my firefox
     ./discord.nix
     ./firefox.nix
