@@ -13,23 +13,6 @@
     packages = with pkgs; [
       nixd
       nixfmt-rfc-style
-      pre-commit
-      shellcheck
-      shfmt
-      yamllint
-
-      go
-      stern
-      goss
-      dgoss
-      python3Full
-      golangci-lint
-      ansible
-      python312Packages.molecule
-      python312Packages.molecule-plugins
-      python312Packages.docker
-      mise
-      uv
     ];
 
     #virt-manager persistence

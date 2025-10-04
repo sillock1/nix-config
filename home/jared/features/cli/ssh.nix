@@ -3,16 +3,11 @@
   ...
 }:
 {
-  programs.ssh = {
-    enable = true;
-    matchBlocks = {
-      "*" = {
-        forwardAgent = true;
-        identityAgent = "~/.1password/agent.sock";
-        setEnv.WAYLAND_DISPLAY = "wayland-waypipe";
-        extraOptions.StreamLocalBindUnlink = "yes";
-      };
-    };
+  programs.ssh.matchBlocks."*" = {
+    forwardAgent = true;
+    identityAgent = "~/.1password/agent.sock";
+    setEnv.WAYLAND_DISPLAY = "wayland-waypipe";
+    extraOptions.StreamLocalBindUnlink = "yes";
   };
 
   home.persistence = {
