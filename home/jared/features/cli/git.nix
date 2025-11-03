@@ -16,15 +16,15 @@ in
       ".direnv"
       "result"
     ];
+    user.name = "sillock";
+    user.email = lib.mkDefault "mail@sillock.com";
+    signing.key = "5922765DA44FED87F98EE2FBA4572BEA3D629397!";
     settings = {
       aliases = {
         p = "pull --ff-only";
       };
-      userName = "sillock";
-      userEmail = lib.mkDefault "mail@sillock.com";
       extraConfig = {
         init.defaultBranch = "main";
-        user.signing.key = "5922765DA44FED87F98EE2FBA4572BEA3D629397!";
         commit.gpgSign = lib.mkDefault true;
         gpg.program = "gpg2";
 
