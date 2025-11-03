@@ -56,6 +56,7 @@
   networking = {
     hostName = "luna";
     firewall.enable = false;
+    search = [ "internal" "pill.ac" "home.arpa"];
     hostId = pkgs.lib.concatStringsSep "" (
       pkgs.lib.take 8 (
         pkgs.lib.stringToCharacters (builtins.hashString "sha256" config.networking.hostName)
