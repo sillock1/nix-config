@@ -16,9 +16,15 @@ in
       ".direnv"
       "result"
     ];
-    user.name = "sillock";
-    user.email = lib.mkDefault "mail@sillock.com";
-    signing.key = "5922765DA44FED87F98EE2FBA4572BEA3D629397!";
+    includes = [{
+      contents = {
+        user = {
+          name = "sillock";
+          email = "mail@sillock.com";
+          signingKey = "5922765DA44FED87F98EE2FBA4572BEA3D629397!";
+        };
+      };
+    }];
     settings = {
       aliases = {
         p = "pull --ff-only";
@@ -27,7 +33,6 @@ in
         init.defaultBranch = "main";
         commit.gpgSign = lib.mkDefault true;
         gpg.program = "gpg2";
-
         merge.conflictStyle = "zdiff3";
         commit.verbose = true;
         diff.algorithm = "histogram";
