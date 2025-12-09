@@ -10,6 +10,7 @@
       jetbrains.datagrip
       jetbrains.idea-ultimate
       jetbrains.pycharm-professional
+      jetbrains.goland
     ];
     persistence = {
       "/persist/home/${config.home.username}" = {
