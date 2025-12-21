@@ -20,7 +20,7 @@ in
       contents = {
         user = {
           name = "sillock";
-          email = "mail@sillock.com";
+          email = "git@sillock.com";
           signingKey = "5922765DA44FED87F98EE2FBA4572BEA3D629397!";
         };
       };
