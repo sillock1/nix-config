@@ -1,3 +1,9 @@
+> [!IMPORTANT]  
+> This repository has been migrated to Forgejo here https://codeberg.org/sillock/nix-config
+> 
+> GitHub has been lacking in features, taking years to fix glaringly single bugs, focusing heavily on AI integration, and pushing for more monetisation with the charging of self hosted runners in private repos
+
+
 # nix-config
 Configuration for my Nix based machines
 
